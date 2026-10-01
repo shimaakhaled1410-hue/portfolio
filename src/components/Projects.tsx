@@ -6,12 +6,8 @@ import { Project } from '@/types';
 import { projects } from '@/data/portfolioData';
 import { 
   FolderGit2, 
-  ExternalLink, 
-  Sparkles, 
-  Play, 
-  Layers, 
   ArrowRight, 
-  Smartphone,
+  Play, 
   Eye
 } from 'lucide-react';
 import { GithubIcon } from '@/components/Icons';
@@ -26,7 +22,7 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
 
   const categories = [
     { id: 'all', label: 'All Projects' },
-    { id: 'AI & Mobile', label: 'AI & Vision' },
+    { id: 'AI & Mobile', label: 'AI & Mobile' },
     { id: 'Real-Time & Cloud', label: 'Cloud & Realtime' },
     { id: 'Community & Social', label: 'Social & Community' },
     { id: 'Transit & Utilities', label: 'Transit & Utilities' },
@@ -43,28 +39,28 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800 mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-cyan-950/60 text-cyan-400 border border-cyan-800 mb-3">
             <FolderGit2 className="w-3.5 h-3.5" />
-            <span>Featured Case Studies</span>
+            <span>Featured Mobile Software</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Production Mobile Applications & Solutions
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Selected Case Studies
           </h2>
-          <p className="mt-3 text-slate-600 dark:text-slate-400 text-base sm:text-lg">
-            Scalable cross-platform software engineered with Clean Architecture, BLoC state management, and real-time cloud services.
+          <p className="mt-3 text-slate-400 text-base sm:text-lg">
+            Cross-platform mobile applications engineered with Clean Architecture and BLoC.
           </p>
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-14">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setFilter(cat.id)}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 filter === cat.id
-                  ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
-                  : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800'
+                  ? 'bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 shadow-md shadow-cyan-500/20'
+                  : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
               }`}
             >
               {cat.label}
@@ -73,125 +69,102 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:shadow-xl"
+              onClick={() => onSelectProject(project)}
+              className="rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/40 shadow-md hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
             >
               <div>
-                
-                {/* Media Showcase Area */}
-                <div className="relative aspect-[16/10] bg-slate-950 overflow-hidden border-b border-slate-100 dark:border-slate-800">
+                {/* 16:9 Cover Image Container with object-fit: cover */}
+                <div className="relative aspect-[16/9] w-full bg-slate-950 overflow-hidden border-b border-slate-800">
                   <Image
                     src={project.image}
                     alt={project.name}
                     fill
-                    className="object-contain p-4 group-hover:scale-[1.03] transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
-                  {/* Top Badges */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-blue-600/90 text-white backdrop-blur-md shadow-sm">
+                  {/* Top Category Badge */}
+                  <div className="absolute top-3 left-3 flex items-center gap-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-slate-900/90 text-cyan-400 border border-cyan-800/60 backdrop-blur-md">
                       {project.category}
                     </span>
                     {project.featured && (
-                      <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-500 text-slate-950">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-500 text-slate-950">
                         Featured
                       </span>
                     )}
                   </div>
 
-                  {/* Bottom Bar inside Image */}
-                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
-                    <span className="text-xs text-slate-300 font-medium">
-                      {project.gallery.length} Interactive Screens
-                    </span>
-                    
-                    {project.videoUrl && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onOpenVideo(project.videoUrl!, project.name);
-                        }}
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold bg-red-600/90 hover:bg-red-500 text-white backdrop-blur-md transition-colors"
-                      >
-                        <Play className="w-3 h-3 fill-current" />
-                        <span>Watch Demo</span>
-                      </button>
-                    )}
-                  </div>
+                  {/* Video Indicator pill if available */}
+                  {project.videoUrl && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onOpenVideo(project.videoUrl!, project.name);
+                      }}
+                      className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-red-600/90 hover:bg-red-500 text-white backdrop-blur-md transition-colors"
+                    >
+                      <Play className="w-3 h-3 fill-current" />
+                      <span>Demo</span>
+                    </button>
+                  )}
                 </div>
 
-                {/* Content Area */}
-                <div className="p-6 sm:p-7 space-y-4">
+                {/* Minimal Card Details */}
+                <div className="p-6 space-y-3">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
                       {project.name}
                     </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 mt-1">
+                    <p className="text-xs sm:text-sm font-medium text-slate-400 mt-1 line-clamp-1">
                       {project.tagline}
                     </p>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Problem / Solution snapshot */}
-                  <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-xs space-y-1.5">
-                    <div>
-                      <strong className="text-slate-700 dark:text-slate-300">Solution: </strong>
-                      <span className="text-slate-600 dark:text-slate-400">{project.solution}</span>
-                    </div>
-                  </div>
-
-                  {/* Technologies Badges */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {project.technologies.slice(0, 5).map((tech) => (
+                  {/* Key Tech Stack Tags */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {project.technologies.slice(0, 4).map((tech) => (
                       <span
                         key={tech}
-                        className="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60 font-mono"
+                        className="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800/80 text-slate-300 border border-slate-700/60 font-mono"
                       >
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 5 && (
-                      <span className="text-[11px] px-2 py-1 rounded-md text-slate-400 font-mono">
-                        +{project.technologies.length - 5} more
+                    {project.technologies.length > 4 && (
+                      <span className="text-[11px] px-2 py-0.5 rounded-md text-slate-500 font-mono">
+                        +{project.technologies.length - 4}
                       </span>
                     )}
                   </div>
-
                 </div>
-
               </div>
 
-              {/* Card Footer Actions */}
-              <div className="p-6 sm:p-7 pt-0 border-t border-slate-100 dark:border-slate-800/60 mt-4 flex items-center justify-between gap-3">
-                <button
-                  onClick={() => onSelectProject(project)}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors"
-                >
-                  <Eye className="w-4 h-4" />
-                  <span>Explore Case Study</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+              {/* Action Bar */}
+              <div className="p-6 pt-0 border-t border-slate-800/60 mt-2 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors">
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>View Case Study</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </span>
 
-                <div className="flex items-center gap-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    title="View GitHub Repository"
-                  >
-                    <GithubIcon className="w-4 h-4" />
-                  </a>
-                </div>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="p-1.5 text-slate-400 hover:text-white rounded-lg border border-slate-800 hover:bg-slate-800 transition-colors"
+                  title="View GitHub Source"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                </a>
               </div>
 
             </div>
@@ -202,3 +175,4 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
     </section>
   );
 }
+

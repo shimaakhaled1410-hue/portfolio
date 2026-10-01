@@ -7,7 +7,6 @@ import {
   Printer, 
   Download, 
   Mail, 
-  Phone, 
   MapPin, 
   CheckCircle2, 
   FileText,
@@ -44,7 +43,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
     const resumeText = `
 ${personalInfo.formalName}
 ${personalInfo.title}
-Location: ${personalInfo.location} | Email: ${personalInfo.email} | Phone: ${personalInfo.phone}
+Location: ${personalInfo.location} | Email: ${personalInfo.email}
 LinkedIn: ${personalInfo.linkedin} | GitHub: ${personalInfo.github}
 
 PROFESSIONAL SUMMARY
@@ -149,11 +148,6 @@ ${certifications.map(c => `- ${c.title} (${c.issuer})`).join('\n')}
               <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-1 text-blue-700 hover:underline">
                 <Mail className="w-3 h-3" />
                 {personalInfo.email}
-              </a>
-              <span>•</span>
-              <a href={`tel:${personalInfo.phoneRaw}`} className="flex items-center gap-1 text-slate-700">
-                <Phone className="w-3 h-3" />
-                {personalInfo.phone}
               </a>
               <span>•</span>
               <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-blue-700 hover:underline">

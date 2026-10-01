@@ -5,25 +5,19 @@ import Image from 'next/image';
 import { personalInfo } from '@/data/portfolioData';
 import { 
   ArrowRight, 
-  FileDown, 
   Sparkles, 
-  MapPin, 
   Mail, 
-  CheckCircle2, 
   Layers, 
-  Cpu, 
-  Smartphone,
   ExternalLink,
   ShieldCheck
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/Icons';
 
 interface HeroProps {
-  onOpenResume?: () => void;
   onSelectProject?: (projectId: string) => void;
 }
 
-export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
+export default function Hero({ onSelectProject }: HeroProps) {
   const [activeApp, setActiveApp] = useState<'calogram' | 'wedo' | 'metro'>('calogram');
 
   const appShowcases = {
@@ -33,8 +27,8 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
       badge: 'Multimodal AI & Nutrition',
       tagline: 'Instant AI calorie scanner & macro tracking',
       image: '/assets/CaloGram_Freelancing_Project_Dashboard.png',
-      color: 'from-emerald-500 to-green-600',
-      pillBg: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
+      color: 'from-emerald-500 to-teal-500',
+      pillBg: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
       stack: ['Flutter', 'Gemini AI', 'Clean Arch', 'Firestore'],
     },
     wedo: {
@@ -43,8 +37,8 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
       badge: 'Real-Time SaaS Collaboration',
       tagline: 'Real-time task synchronization & team roles',
       image: '/assets/WeDo_Freelancing_Project_Create_Project.png',
-      color: 'from-blue-600 to-indigo-600',
-      pillBg: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20',
+      color: 'from-cyan-500 to-blue-600',
+      pillBg: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
       stack: ['Flutter', 'BLoC', 'Cloud Functions', 'FCM'],
     },
     metro: {
@@ -53,8 +47,8 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
       badge: 'Offline Transit & AR/EN',
       tagline: 'Bilingual offline route planner & accessibility',
       image: '/assets/Metro_Freelancing_Project_Splash.png',
-      color: 'from-sky-500 to-blue-700',
-      pillBg: 'bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20',
+      color: 'from-teal-500 to-cyan-600',
+      pillBg: 'bg-teal-500/10 text-teal-400 border-teal-500/20',
       stack: ['Flutter', 'Dart', 'Localization', 'Routing'],
     },
   };
@@ -64,8 +58,8 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
   return (
     <section className="relative pt-32 pb-20 lg:pt-36 lg:pb-32 overflow-hidden bg-grid-pattern">
       {/* Background ambient glow orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-tr from-blue-500/15 via-indigo-500/10 to-emerald-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute top-20 right-10 w-72 h-72 bg-blue-600/10 dark:bg-blue-600/15 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-cyan-500/10 via-emerald-500/10 to-teal-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-20 right-10 w-72 h-72 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -75,32 +69,32 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
             
             {/* Status / Availability Badge */}
             <div className="inline-flex items-center justify-center lg:justify-start">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-800/60 text-blue-700 dark:text-blue-300 shadow-sm backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-cyan-950/50 border border-cyan-800/60 text-cyan-300 shadow-sm backdrop-blur-sm">
                 <span className="flex h-2 w-2 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
                 <span>Software Engineer | Flutter Developer</span>
-                <span className="text-slate-300 dark:text-slate-700">•</span>
-                <span className="text-slate-500 dark:text-slate-400 font-normal">Cairo, Egypt</span>
+                <span className="text-slate-700">•</span>
+                <span className="text-slate-400 font-normal">Cairo, Egypt</span>
               </div>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
                 Hi, I&apos;m{' '}
-                <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-emerald-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
                   Shimaa Khaled
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl font-semibold text-slate-700 dark:text-slate-200">
+              <p className="text-lg sm:text-xl font-semibold text-slate-200">
                 Architecting Scalable Mobile Applications with Clean Code & AI.
               </p>
             </div>
 
-            {/* Summary Bio */}
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            {/* Summary Bio - Crisp 1-2 punchy sentences */}
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               {personalInfo.bio}
             </p>
 
@@ -108,62 +102,52 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 rounded-xl shadow-lg shadow-cyan-500/20 hover:-translate-y-0.5 transition-all duration-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
               >
                 <Sparkles className="w-4 h-4" />
-                <span>View My Projects</span>
+                <span>Explore Projects</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </a>
 
-              {onOpenResume && (
-                <button
-                  onClick={onOpenResume}
-                  className="inline-flex items-center gap-2 px-5 py-3.5 text-sm font-semibold text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700/80 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-0.5 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                >
-                  <FileDown className="w-4 h-4 text-blue-500" />
-                  <span>Download CV</span>
-                </button>
-              )}
-
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-4 py-3.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3.5 text-sm font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 rounded-xl border border-slate-800 shadow-sm hover:-translate-y-0.5 transition-all duration-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
               >
-                <Mail className="w-4 h-4 text-emerald-500" />
+                <Mail className="w-4 h-4 text-emerald-400" />
                 <span>Get In Touch</span>
               </a>
             </div>
 
-            {/* Social & Contact Strip */}
+            {/* Social Strip: Focused solely on Email, LinkedIn, GitHub */}
             <div className="flex items-center justify-center lg:justify-start gap-4 pt-2">
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                Connect:
+                Contact & Profiles:
               </span>
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-cyan-400 transition-colors"
                 aria-label="GitHub Profile"
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>GitHub</span>
               </a>
-              <span className="text-slate-300 dark:text-slate-700">•</span>
+              <span className="text-slate-700">•</span>
               <a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-cyan-400 transition-colors"
                 aria-label="LinkedIn Profile"
               >
                 <LinkedinIcon className="w-4 h-4" />
                 <span>LinkedIn</span>
               </a>
-              <span className="text-slate-300 dark:text-slate-700">•</span>
+              <span className="text-slate-700">•</span>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-emerald-400 transition-colors"
                 aria-label="Email Shimaa Khaled"
               >
                 <Mail className="w-4 h-4" />
@@ -172,13 +156,13 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
             </div>
 
             {/* Key Metrics / Highlights Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-800/80">
               {personalInfo.stats.map((stat, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/80">
-                  <div className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white font-mono">
+                <div key={idx} className="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80">
+                  <div className="text-lg sm:text-xl font-bold text-white font-mono">
                     {stat.value}
                   </div>
-                  <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400 leading-tight mt-0.5">
+                  <div className="text-[11px] font-medium text-slate-400 leading-tight mt-0.5">
                     {stat.label}
                   </div>
                 </div>
@@ -191,13 +175,13 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
           <div className="lg:col-span-5 flex flex-col items-center justify-center">
             
             {/* App Switcher Tabs */}
-            <div className="flex items-center gap-1.5 p-1 bg-slate-100/90 dark:bg-slate-900/80 backdrop-blur-md rounded-xl border border-slate-200 dark:border-slate-800 mb-4 shadow-sm">
+            <div className="flex items-center gap-1.5 p-1 bg-slate-900/90 backdrop-blur-md rounded-xl border border-slate-800 mb-4 shadow-sm">
               <button
                 onClick={() => setActiveApp('calogram')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeApp === 'calogram'
-                    ? 'bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-500/20'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-slate-800 text-emerald-400 shadow-sm border border-emerald-500/20'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 CaloGram (AI)
@@ -206,8 +190,8 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
                 onClick={() => setActiveApp('wedo')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeApp === 'wedo'
-                    ? 'bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 shadow-sm border border-blue-500/20'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-slate-800 text-cyan-400 shadow-sm border border-cyan-500/20'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 WeDo (SaaS)
@@ -216,8 +200,8 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
                 onClick={() => setActiveApp('metro')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeApp === 'metro'
-                    ? 'bg-white dark:bg-slate-800 text-sky-600 dark:text-sky-400 shadow-sm border border-sky-500/20'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-slate-800 text-teal-400 shadow-sm border border-teal-500/20'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 Cairo Metro
@@ -228,10 +212,10 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
             <div className="relative group w-full max-w-[340px] sm:max-w-[360px]">
               
               {/* Outer Glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-emerald-500 rounded-[44px] blur-lg opacity-30 group-hover:opacity-60 transition duration-500"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-[44px] blur-lg opacity-30 group-hover:opacity-50 transition duration-500"></div>
 
               {/* Phone Body */}
-              <div className="relative rounded-[40px] p-2.5 bg-slate-900 border-[3px] border-slate-700/80 shadow-2xl overflow-hidden">
+              <div className="relative rounded-[40px] p-2.5 bg-slate-950 border-[3px] border-slate-800 shadow-2xl overflow-hidden">
                 
                 {/* Dynamic Island / Speaker Notch */}
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-5 bg-black rounded-full z-30 flex items-center justify-center">
@@ -240,7 +224,7 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
                 </div>
 
                 {/* Screen Content */}
-                <div className="relative rounded-[32px] overflow-hidden aspect-[9/18.5] bg-slate-950 flex flex-col">
+                <div className="relative rounded-[32px] overflow-hidden aspect-[9/18.5] bg-[#070a11] flex flex-col">
                   
                   {/* Image Display */}
                   <div className="relative w-full h-full">
@@ -253,7 +237,7 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
                     />
 
                     {/* Bottom Floating Info Pill inside phone */}
-                    <div className="absolute inset-x-2 bottom-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-700/80 shadow-lg text-left">
+                    <div className="absolute inset-x-2 bottom-3 p-3 bg-slate-900/95 backdrop-blur-md rounded-2xl border border-slate-800 shadow-lg text-left">
                       <div className="flex items-center justify-between">
                         <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border ${currentApp.pillBg}`}>
                           {currentApp.badge}
@@ -261,7 +245,7 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
                         {onSelectProject && (
                           <button
                             onClick={() => onSelectProject(currentApp.id)}
-                            className="text-xs font-semibold text-blue-400 hover:text-blue-300 inline-flex items-center gap-1"
+                            className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1"
                           >
                             <span>Explore</span>
                             <ExternalLink className="w-3 h-3" />
@@ -292,28 +276,28 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
                 </div>
 
                 {/* Home indicator bar */}
-                <div className="w-28 h-1 bg-slate-600 rounded-full mx-auto mt-2" />
+                <div className="w-28 h-1 bg-slate-700 rounded-full mx-auto mt-2" />
               </div>
 
               {/* Floating Architectural Badge */}
-              <div className="absolute -bottom-4 -left-4 p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-md hidden sm:flex items-center gap-2.5 animate-float">
-                <div className="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <div className="absolute -bottom-4 -left-4 p-2.5 rounded-xl bg-slate-900 border border-slate-800 shadow-xl backdrop-blur-md hidden sm:flex items-center gap-2.5 animate-float">
+                <div className="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-slate-900 dark:text-white">Clean Architecture</div>
-                  <div className="text-[10px] text-slate-500 dark:text-slate-400">Strict Layer Decoupling</div>
+                  <div className="text-xs font-bold text-white">Clean Architecture</div>
+                  <div className="text-[10px] text-slate-400">Strict Layer Isolation</div>
                 </div>
               </div>
 
               {/* Floating State Management Badge */}
-              <div className="absolute -top-4 -right-4 p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-md hidden sm:flex items-center gap-2.5 animate-float" style={{ animationDelay: '1.5s' }}>
-                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+              <div className="absolute -top-4 -right-4 p-2.5 rounded-xl bg-slate-900 border border-slate-800 shadow-xl backdrop-blur-md hidden sm:flex items-center gap-2.5 animate-float" style={{ animationDelay: '1.5s' }}>
+                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
                   <Layers className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-slate-900 dark:text-white">BLoC & Cubit</div>
-                  <div className="text-[10px] text-slate-500 dark:text-slate-400">Predictable State Flows</div>
+                  <div className="text-xs font-bold text-white">BLoC & Cubit</div>
+                  <div className="text-[10px] text-slate-400">Predictable State Flows</div>
                 </div>
               </div>
 
@@ -326,3 +310,4 @@ export default function Hero({ onOpenResume, onSelectProject }: HeroProps) {
     </section>
   );
 }
+

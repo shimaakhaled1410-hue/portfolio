@@ -7,30 +7,28 @@
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --surface-card: #ffffff;
-  --surface-glass: rgba(255, 255, 255, 0.8);
+  --surface-glass: rgba(255, 255, 255, 0.85);
   --border-subtle: #e2e8f0;
-  --border-highlight: rgba(59, 130, 246, 0.25);
-  --brand-blue: #3b82f6;
-  --brand-navy: #0f172a;
+  --border-highlight: rgba(6, 182, 212, 0.3);
+  --brand-cyan: #06b6d4;
   --brand-emerald: #10b981;
 }
 
 .dark {
-  --bg-base: #090d16;
+  --bg-base: #070a11;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --surface-card: #0f172a;
-  --surface-glass: rgba(15, 23, 42, 0.75);
+  --surface-card: #0d1322;
+  --surface-glass: rgba(13, 19, 34, 0.8);
   --border-subtle: #1e293b;
-  --border-highlight: rgba(59, 130, 246, 0.2);
-  --brand-blue: #60a5fa;
-  --brand-navy: #0f172a;
-  --brand-emerald: #34d399;
+  --border-highlight: rgba(6, 182, 212, 0.25);
+  --brand-cyan: #06b6d4;
+  --brand-emerald: #10b981;
 }
 
 html {
   scroll-behavior: smooth;
-  color-scheme: light dark;
+  color-scheme: dark;
 }
 
 body {
@@ -43,34 +41,34 @@ body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #070a11;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(100, 116, 139, 0.3);
+  background: rgba(148, 163, 184, 0.2);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.5);
+  background: rgba(6, 182, 212, 0.5);
 }
 
 /* Background Grids */
 .bg-grid-pattern {
-  background-size: 40px 40px;
+  background-size: 36px 36px;
   background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+    linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
 }
 
 .dark .bg-grid-pattern {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 .glass-panel {
@@ -85,7 +83,7 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-highlight);
-  box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.15);
 }
 
 /* Animation utilities */
@@ -106,3 +104,4 @@ body {
 .animate-pulse-subtle {
   animation: pulse-subtle 3s ease-in-out infinite;
 }
+

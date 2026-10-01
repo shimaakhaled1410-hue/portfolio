@@ -5,12 +5,10 @@ export const personalInfo = {
   formalName: 'Shimaa Khaled Ahmed',
   title: 'Software Engineer | Flutter Developer',
   headline: 'Building Scalable, High-Performance Cross-Platform Mobile Applications with Clean Architecture & AI',
-  bio: 'A passionate Flutter Developer with a solid Computer Science background from Ain Shams University and 1+ year of hands-on experience building scalable, cross-platform mobile applications. Highly skilled in Clean Architecture, advanced state management (BLoC/Cubit), and Firebase backend integrations (Cloud Functions, Firestore, FCM). Adept at delivering robust user experiences with deep linking, dynamic theming, and full localization.',
-  aboutStatement: 'I am a passionate Software Engineer and Flutter Developer with a solid Computer Science background from Ain Shams University. With over a year of hands-on experience, I specialize in building scalable, cross-platform mobile applications. My technical philosophy revolves around writing clean, maintainable code using Clean Architecture and advanced state management solutions like BLoC and Cubit. I am highly skilled in integrating powerful backend services via Firebase and bringing AI capabilities into mobile experiences. I thrive on delivering robust, accessible, and highly localized user experiences with modern UI principles.',
+  bio: 'Software Engineer specializing in Flutter, Clean Architecture, and AI-powered mobile experiences. Passionate about building high-performance cross-platform applications with BLoC and Firebase.',
+  aboutStatement: 'Software Engineer specializing in Flutter mobile development. Focused on writing maintainable, clean code using BLoC state management, Firebase backend services, and Gemini AI integrations.',
   location: 'Cairo, Egypt',
   email: 'shimaakhaled1410@gmail.com',
-  phone: '+20 106 479 3089',
-  phoneRaw: '+201064793089',
   github: 'https://github.com/shimaakhaled1410-hue',
   githubUser: 'shimaakhaled1410-hue',
   linkedin: 'https://www.linkedin.com/in/shimaa-khaled-ahmed',
@@ -18,10 +16,10 @@ export const personalInfo = {
   experienceYears: '1+ Year',
   status: 'Open for Opportunities & High-Impact Projects',
   stats: [
-    { label: 'Hands-on Experience', value: '1+ Year' },
-    { label: 'Engineered Mobile Apps', value: '4+ Projects' },
-    { label: 'Intensive Training Hours', value: '165+ Hrs' },
-    { label: 'Clean Code & Tests', value: '100% Scalable' },
+    { label: 'Experience', value: '1+ Year' },
+    { label: 'Mobile Apps', value: '4+ Projects' },
+    { label: 'Training Hours', value: '165+ Hrs' },
+    { label: 'Code Quality', value: 'Clean Arch' },
   ],
 };
 
@@ -30,10 +28,10 @@ export const projects: Project[] = [
     id: 'calogram',
     name: 'CaloGram',
     tagline: 'AI-Powered Nutrition & Calorie Tracker',
-    description: 'A smart nutrition tracking app featuring Multimodal AI for intelligent food image scanning and smart text/voice logging.',
+    description: 'A smart nutrition tracking app featuring Multimodal AI for intelligent food image scanning and speech-to-text logging.',
     category: 'AI & Mobile',
     problem: 'Users struggle with manually calculating complex meal calories and macros, resulting in high friction and abandoned dietary tracking.',
-    solution: 'Built an offline-first mobile app using Flutter and Clean Architecture. Integrated Gemini AI for intelligent scanning, calculating instant calories and macro breakdowns. Developed a zero-latency startup caching strategy syncing seamlessly with Firestore.',
+    solution: 'Built an offline-first mobile app using Flutter and Clean Architecture. Integrated Gemini AI for intelligent scanning, calculating instant calories and macro breakdowns with zero-latency Firestore caching.',
     technologies: [
       'Flutter',
       'Dart',
@@ -42,7 +40,7 @@ export const projects: Project[] = [
       'Gemini Multimodal AI',
       'SharedPreferences',
       'Cloud Firestore',
-      'GitHub Actions (CI/CD)',
+      'GitHub Actions',
     ],
     github: 'https://github.com/shimaakhaled1410-hue',
     demoUrl: 'https://github.com/shimaakhaled1410-hue',
@@ -89,7 +87,7 @@ export const projects: Project[] = [
     description: 'A scalable collaborative task application featuring real-time synchronization and Role-Based Access Control.',
     category: 'Real-Time & Cloud',
     problem: 'Teams need a seamless, real-time platform to manage tasks and deadlines across multiple devices without data synchronization conflicts.',
-    solution: 'Architected a robust app using Flutter and BLoC. Engineered real-time task synchronization via Cloud Firestore and dispatched scheduled notifications via Node.js & FCM. Implemented GoRouter for direct project invitation deep links.',
+    solution: 'Architected a robust app using Flutter and BLoC. Engineered real-time task synchronization via Cloud Firestore and dispatched scheduled notifications via Node.js & FCM.',
     technologies: [
       'Flutter',
       'Dart',
@@ -142,10 +140,10 @@ export const projects: Project[] = [
     id: 'trivio',
     name: 'Trivio',
     tagline: 'Football Social & Community Platform (Graduation Project)',
-    description: 'A feature-rich football community platform serving as my 6-member team Graduation Project at Ain Shams University.',
+    description: 'A feature-rich football community platform built as a 6-member Graduation Project at Ain Shams University.',
     category: 'Community & Social',
     problem: 'Football fans lack a dedicated, centralized social hub with advanced group management, fan discussions, and real-time interaction.',
-    solution: 'Built core social features including posts, nested comments, live reactions, and a complex Groups module covering 30+ user flows. Integrated RESTful APIs and offline data caching.',
+    solution: 'Built core social features including posts, nested comments, live reactions, and a complex Groups module covering 30+ user flows with offline caching.',
     technologies: [
       'Flutter',
       'Dart',
@@ -158,7 +156,7 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/shimaakhaled1410-hue',
     demoUrl: 'https://github.com/shimaakhaled1410-hue',
-    image: '/assets/Metro_Freelancing_Project_Splash.png', // Fallback cover, will highlight video
+    image: '/assets/CaloGram_Freelancing_Project_Dashboard.png',
     videoUrl: '/assets/Trivio_Graduation_Project_Video_Demo.mp4',
     gallery: [
       {
@@ -184,10 +182,10 @@ export const projects: Project[] = [
     id: 'metro-transit',
     name: 'Cairo Metro Transit App',
     tagline: 'Smart Multilingual Transit Route Guide',
-    description: 'A transit application for metro stations guiding commuters with multi-lingual support, fare calculation, and accessibility.',
+    description: 'A transit guide assisting commuters with offline shortest-path routing, fare calculations, and bilingual support.',
     category: 'Transit & Utilities',
-    problem: 'Commuters need accessible, multilingual transit route information, station lookup, and fare tier calculations on the go without requiring cellular connectivity.',
-    solution: 'Developed a fast, responsive mobile application prioritizing accessibility with AR/EN localization, interactive station graphs, and clear routing interfaces.',
+    problem: 'Commuters need accessible, multilingual transit route information, station lookup, and fare tier calculations on the go without cellular connectivity.',
+    solution: 'Developed a fast, responsive mobile app prioritizing accessibility with AR/EN localization, interactive station graphs, and offline routing algorithms.',
     technologies: [
       'Flutter',
       'Dart',
@@ -239,7 +237,7 @@ export const projects: Project[] = [
 export const skillCategories: SkillCategory[] = [
   {
     title: 'Mobile Development',
-    description: 'Native-grade cross-platform mobile apps for iOS and Android with 60fps animations.',
+    description: 'Native-feel cross-platform apps for iOS and Android with 60fps animations.',
     iconName: 'Smartphone',
     skills: [
       { name: 'Flutter', highlight: true, tag: 'Core' },
@@ -248,13 +246,13 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Offline-First Architecture', highlight: true },
       { name: 'Deep Linking (GoRouter)', highlight: true },
       { name: 'App Localization (AR/EN)', highlight: true },
-      { name: 'Dynamic Theming (Light/Dark)', highlight: false },
-      { name: 'Custom Animations & Micro-interactions', highlight: false },
+      { name: 'Dynamic Light/Dark Theming', highlight: false },
+      { name: 'Custom Micro-animations', highlight: false },
     ],
   },
   {
     title: 'Architecture & State Management',
-    description: 'Enterprise architecture patterns ensuring testability, isolation, and long-term maintainability.',
+    description: 'Enterprise architecture patterns ensuring isolation, testability, and long-term scalability.',
     iconName: 'Layers',
     skills: [
       { name: 'Clean Architecture', highlight: true, tag: 'Enterprise' },
@@ -274,8 +272,8 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Multimodal AI (Gemini)', highlight: true, tag: 'Cutting Edge' },
       { name: 'Groq API Integration', highlight: false },
       { name: 'Prompt Engineering', highlight: true },
-      { name: 'Speech-to-Text (STT) Processing', highlight: true },
-      { name: 'Computer Vision Plate & Food Scanning', highlight: true },
+      { name: 'Speech-to-Text Processing', highlight: true },
+      { name: 'Vision Plate & Food Scanning', highlight: true },
       { name: 'Structured JSON Extraction', highlight: false },
     ],
   },
@@ -289,7 +287,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Firebase Cloud Functions', highlight: true },
       { name: 'Firebase Cloud Messaging (FCM)', highlight: true },
       { name: 'RESTful APIs Integration', highlight: true },
-      { name: 'Local Persistence (Hive, SharedPreferences)', highlight: true },
+      { name: 'Local Persistence (Hive, Prefs)', highlight: true },
       { name: 'Node.js Backend Basics', highlight: false },
       { name: 'MySQL & Database Modeling', highlight: false },
     ],
@@ -300,11 +298,11 @@ export const skillCategories: SkillCategory[] = [
     iconName: 'Brain',
     skills: [
       { name: 'Data Structures & Algorithms', highlight: true },
-      { name: 'Object-Oriented Programming (OOP)', highlight: true },
+      { name: 'Object-Oriented Programming', highlight: true },
       { name: 'Design Patterns', highlight: true },
       { name: 'Unit Testing & Mocking', highlight: true },
       { name: 'Agile & Scrum Methodologies', highlight: false },
-      { name: 'Performance Profiling & Memory Leak Audits', highlight: true },
+      { name: 'Performance Profiling', highlight: true },
     ],
   },
   {
@@ -314,12 +312,11 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'Git & GitHub', highlight: true },
       { name: 'GitHub Actions (CI/CD)', highlight: true, tag: 'DevOps' },
-      { name: 'Flutter DevTools & Profiler', highlight: true },
+      { name: 'Flutter DevTools', highlight: true },
       { name: 'Firebase Console', highlight: true },
       { name: 'Postman API Testing', highlight: false },
       { name: 'Google AI Studio', highlight: true },
-      { name: 'Android Studio', highlight: false },
-      { name: 'VS Code', highlight: false },
+      { name: 'Android Studio & VS Code', highlight: false },
     ],
   },
 ];
@@ -334,11 +331,8 @@ export const experiences: Experience[] = [
     period: '07/2025 - Present',
     isCurrent: true,
     description: [
-      'Designed and engineered multiple robust, scalable cross-platform mobile applications from scratch using Flutter and Dart.',
-      'Implemented core architectural patterns including Clean Architecture and advanced state management (BLoC/Cubit) to guarantee separation of concerns and maintainability.',
-      'Engineered real-time synchronization, offline-first caching, and complex backend integrations using Firebase (Firestore, Cloud Functions, FCM) and local storage solutions (Hive, SharedPreferences).',
-      'Integrated multimodal artificial intelligence (Gemini) for computer-vision calorie tracking and natural language voice logging.',
-      'Set up CI/CD workflows utilizing GitHub Actions to automate build checks, static analysis, and testing processes.',
+      'Engineered scalable cross-platform Flutter applications using Clean Architecture, BLoC/Cubit state management, and Firebase Cloud Services.',
+      'Integrated Google Gemini Multimodal AI for real-time computer vision meal scanning, voice logging, and automated CI/CD via GitHub Actions.',
     ],
     technologies: ['Flutter', 'Dart', 'Firebase', 'Node.js', 'GitHub Actions', 'GetIt', 'Dartz', 'BLoC', 'Gemini AI'],
   },
@@ -351,9 +345,8 @@ export const experiences: Experience[] = [
     period: 'Summer 2024',
     isCurrent: false,
     description: [
-      'Participated in intensive front-end engineering sessions covering modern JavaScript (ES6+), component architecture, and responsive design.',
-      'Collaborated in peer coding challenges and implemented interactive user interfaces adhering to UI/UX best practices.',
-      'Received official Certificate of Completion endorsed by FCIS Ain Shams University leadership.',
+      'Mastered modern JavaScript (ES6+), responsive component design, and UI/UX best practices in team-based coding sprints.',
+      'Successfully earned official Certificate of Completion endorsed by FCIS Ain Shams University leadership.',
     ],
     technologies: ['JavaScript', 'HTML5', 'CSS3', 'Git', 'Responsive Design'],
   },
@@ -378,9 +371,8 @@ export const educations: Education[] = [
       'Artificial Intelligence Fundamentals',
     ],
     highlights: [
-      'Strong academic foundation in algorithmic problem solving and system design',
-      'Led mobile application development for the 6-member Graduation Project (Trivio)',
-      'Active member in student tech initiatives and software engineering workshops',
+      'Solid Computer Science foundation with focus on software architecture and algorithm optimization.',
+      'Core Mobile Lead for 6-member Graduation Project (Trivio), building 30+ interactive user flows.',
     ],
   },
 ];
@@ -402,7 +394,7 @@ export const certifications: Certification[] = [
     issuer: 'Ministry of Communications and Information Technology (MCIT)',
     dateOrHours: 'Round 5 (In Progress)',
     status: 'In Progress',
-    image: '/assets/Training_Certificate_ITI_Flutter.jpeg', // Fallback or badge
+    image: '',
     description: 'Prestigious national scholarship track focusing on Mobile App Development, building industry-ready competencies under senior software engineering mentorship.',
     skillsAcquired: ['Advanced Mobile Architecture', 'Team Collaboration', 'Enterprise Flutter Practices'],
   },
@@ -449,6 +441,7 @@ export const certifications: Certification[] = [
     skillsAcquired: ['Front-End Fundamentals', 'UI Design Implementation', 'Collaboration & Git'],
   },
 ];
+
 
 export const services: Service[] = [
   {

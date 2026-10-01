@@ -14,14 +14,12 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ProjectModal from '@/components/ProjectModal';
 import VideoModal from '@/components/VideoModal';
-import ResumeModal from '@/components/ResumeModal';
 import { Project } from '@/types';
 import { projects } from '@/data/portfolioData';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [videoModal, setVideoModal] = useState<{ url: string; title: string } | null>(null);
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   const handleSelectProjectById = (projectId: string) => {
     const found = projects.find((p) => p.id === projectId);
@@ -35,14 +33,13 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen relative flex flex-col">
+    <main className="min-h-screen relative flex flex-col bg-[#070a11] text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-400">
       {/* Navigation */}
-      <Navbar onOpenResume={() => setIsResumeOpen(true)} />
+      <Navbar />
 
       {/* Main Content Sections */}
       <div className="flex-1">
         <Hero 
-          onOpenResume={() => setIsResumeOpen(true)}
           onSelectProject={handleSelectProjectById}
         />
         <About />
@@ -73,11 +70,7 @@ export default function Home() {
         title={videoModal?.title || ''}
         onClose={() => setVideoModal(null)}
       />
-
-      <ResumeModal
-        isOpen={isResumeOpen}
-        onClose={() => setIsResumeOpen(false)}
-      />
     </main>
   );
 }
+
