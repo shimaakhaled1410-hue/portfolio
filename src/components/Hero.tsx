@@ -262,41 +262,41 @@ export default function Hero({ onSelectProject }: HeroProps) {
               <div className="relative rounded-[40px] p-2.5 bg-slate-900 dark:bg-slate-950 border-[3px] border-slate-700 dark:border-slate-800 shadow-2xl overflow-hidden">
                 
                 {/* Dynamic Notch */}
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-5 bg-black rounded-full z-30 flex items-center justify-center">
+                <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-26 h-4.5 bg-black rounded-full z-30 flex items-center justify-center pointer-events-none border border-slate-800/80">
                   <div className="w-2.5 h-2.5 rounded-full bg-slate-800 mr-2 border border-slate-700" />
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
 
-                {/* Screen Viewport (Clean, full view without obscuring bottom cards or badges) */}
-                <div className="relative rounded-[32px] overflow-hidden aspect-[9/18.5] bg-slate-950 flex flex-col justify-between">
+                {/* Screen Viewport with Top & Bottom Safe Area Padding */}
+                <div className="relative rounded-[32px] overflow-hidden aspect-[9/18.5] bg-slate-950 flex flex-col justify-between pt-11 pb-5 px-1">
                   
-                  {/* Image Display */}
-                  <div className="relative w-full h-full bg-slate-900">
+                  {/* Image Display Container */}
+                  <div className="relative w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden rounded-[20px]">
                     <img
                       src={imgSrc}
                       alt={`${currentApp.name} slide ${slideIndex + 1}`}
                       onError={handleImageError}
-                      className="w-full h-full object-contain object-top transition-all duration-500 transform scale-100 group-hover:scale-[1.01]"
+                      className="w-full h-full object-contain object-center transition-all duration-500 transform scale-100 group-hover:scale-[1.01]"
                     />
 
                     {/* Manual Navigation Overlay Arrows (on hover) */}
                     <button
                       onClick={prevSlide}
                       aria-label="Previous slide"
-                      className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/70 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 z-30"
+                      className="absolute left-1.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/75 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 z-30"
                     >
                       <ChevronLeft className="w-4 h-4" />
                     </button>
                     <button
                       onClick={nextSlide}
                       aria-label="Next slide"
-                      className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/70 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 z-30"
+                      className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/75 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 z-30"
                     >
                       <ChevronRight className="w-4 h-4" />
                     </button>
 
-                    {/* Top Right Pause / Resume Control Pill (Subtle & Clean) */}
-                    <div className="absolute top-9 right-3 flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-950/70 backdrop-blur-md border border-slate-800/80 text-[10px] font-mono text-slate-300 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {/* Top Right Pause / Resume Control Pill */}
+                    <div className="absolute top-2 right-2 flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[10px] font-mono text-slate-300 z-30 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button 
                         onClick={() => setIsPaused(!isPaused)} 
                         aria-label={isPaused ? 'Resume auto slide' : 'Pause auto slide'}
