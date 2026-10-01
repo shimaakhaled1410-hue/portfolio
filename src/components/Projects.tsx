@@ -81,15 +81,15 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
                 {/* Cover Image */}
                 <div className="relative aspect-[16/9] w-full bg-slate-950 overflow-hidden border-b border-slate-200 dark:border-slate-800">
                   {project.id === 'trivio' ? (
-                    /* Trivio: logo centred in a frosted pill so black text is visible on dark bg */
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative w-[55%] max-w-[220px] aspect-[3/1] bg-white/95 dark:bg-white/90 rounded-2xl shadow-lg shadow-black/30 ring-1 ring-white/20 flex items-center justify-center p-4 group-hover:scale-105 transition-transform duration-500">
+                    /* Trivio: full-width logo on dark-slate gradient backdrop */
+                    <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_center,_#1e293b_0%,_#0f172a_60%,_#070a11_100%)]">
+                      <div className="relative w-[85%] h-[60%] group-hover:scale-105 transition-transform duration-500">
                         <Image
                           src={project.image}
                           alt={project.name}
                           fill
-                          sizes="220px"
-                          className="object-contain p-3"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-contain drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]"
                         />
                       </div>
                     </div>
@@ -111,9 +111,9 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-slate-900/90 text-cyan-400 border border-cyan-800/60 backdrop-blur-md">
                       {project.category}
                     </span>
-                    {project.featured && (
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-500 text-slate-950">
-                        Featured
+                    {project.id === 'trivio' && (
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-500/90 text-slate-950 backdrop-blur-md">
+                        Graduation Project
                       </span>
                     )}
                   </div>
