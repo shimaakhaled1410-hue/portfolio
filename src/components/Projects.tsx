@@ -93,6 +93,19 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
                         />
                       </div>
                     </div>
+                  ) : ['calogram', 'wedo'].includes(project.id) ? (
+                    /* CaloGram & WeDo: padded contain so app bars / status bars aren't clipped */
+                    <div className="absolute inset-0 flex items-center justify-center pt-4 pb-2 px-3">
+                      <div className="relative w-full h-full group-hover:scale-105 transition-transform duration-500">
+                        <Image
+                          src={project.image}
+                          alt={project.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
                   ) : (
                     <Image
                       src={project.image}
