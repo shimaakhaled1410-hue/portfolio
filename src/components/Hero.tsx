@@ -1,15 +1,11 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import { personalInfo } from '@/data/portfolioData';
 import { 
   ArrowRight, 
   Sparkles, 
   Mail, 
-  Layers, 
-  ExternalLink,
-  ShieldCheck,
   ChevronLeft,
   ChevronRight,
   Pause,
@@ -21,59 +17,39 @@ interface HeroProps {
   onSelectProject?: (projectId: string) => void;
 }
 
-type AppKey = 'monometro' | 'wedo' | 'calogram';
+type AppKey = 'calogram' | 'wedo' | 'monometro';
 
 export default function Hero({ onSelectProject }: HeroProps) {
-  const [activeApp, setActiveApp] = useState<AppKey>('monometro');
+  const [activeApp, setActiveApp] = useState<AppKey>('calogram');
   const [slideIndex, setSlideIndex] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [imgSrc, setImgSrc] = useState<string>('');
 
   const appScreenshots: Record<AppKey, string[]> = {
-    monometro: Array.from({ length: 8 }, (_, i) => `/assets/${i + 1} MonoMetro.jpeg`),
-    wedo: Array.from({ length: 12 }, (_, i) => `/assets/${i + 1} WeDo.jpeg`),
     calogram: Array.from({ length: 28 }, (_, i) => `/assets/${i + 1} CaloGram.jpeg`),
+    wedo: Array.from({ length: 12 }, (_, i) => `/assets/${i + 1} WeDo.jpeg`),
+    monometro: Array.from({ length: 8 }, (_, i) => `/assets/${i + 1} MonoMetro.jpeg`),
   };
 
   const appShowcases: Record<AppKey, {
     id: string;
     name: string;
-    badge: string;
-    tagline: string;
     fallbackImage: string;
-    pillBg: string;
-    stack: string[];
-    totalSlides: number;
   }> = {
-    monometro: {
-      id: 'monometro',
-      name: 'MonoMetro',
-      badge: '3 Metro Lines + East Nile Monorail',
-      tagline: 'In review for Google Play Store release',
-      fallbackImage: '/assets/Metro_Freelancing_Project_Splash.png',
-      pillBg: 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-500/20',
-      stack: ['Flutter', '3 Lines + Monorail', 'AR/EN', 'Offline'],
-      totalSlides: 8,
+    calogram: {
+      id: 'calogram',
+      name: 'CaloGram',
+      fallbackImage: '/assets/CaloGram_Freelancing_Project_Dashboard.png',
     },
     wedo: {
       id: 'wedo',
       name: 'WeDo',
-      badge: 'Real-Time SaaS Collaboration',
-      tagline: 'Real-time task synchronization & team roles',
       fallbackImage: '/assets/WeDo_Freelancing_Project_Create_Project.png',
-      pillBg: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20',
-      stack: ['Flutter', 'BLoC', 'Cloud Functions', 'FCM'],
-      totalSlides: 12,
     },
-    calogram: {
-      id: 'calogram',
-      name: 'CaloGram',
-      badge: 'Multimodal AI & Nutrition',
-      tagline: 'Instant AI calorie scanner & macro tracking',
-      fallbackImage: '/assets/CaloGram_Freelancing_Project_Dashboard.png',
-      pillBg: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
-      stack: ['Flutter', 'Gemini AI', 'Clean Arch', 'Firestore'],
-      totalSlides: 28,
+    monometro: {
+      id: 'monometro',
+      name: 'MonoMetro',
+      fallbackImage: '/assets/Metro_Freelancing_Project_Splash.png',
     },
   };
 
@@ -236,51 +212,51 @@ export default function Hero({ onSelectProject }: HeroProps) {
 
           </div>
 
-          {/* Right Column: Interactive Mobile Mockup Carousel Showcase */}
+          {/* Right Column: Clean Mobile Mockup Carousel Showcase (No overlapping badges/pill overlays) */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center">
             
-            {/* App Switcher Tabs / Chips */}
-            <div className="flex items-center gap-1.5 p-1.5 bg-slate-100 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 mb-4 shadow-sm">
-              <button
-                onClick={() => handleTabChange('monometro')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                  activeApp === 'monometro'
-                    ? 'bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-sm border border-teal-500/30'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                }`}
-              >
-                MonoMetro (8)
-              </button>
-              <button
-                onClick={() => handleTabChange('wedo')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                  activeApp === 'wedo'
-                    ? 'bg-white dark:bg-slate-800 text-cyan-600 dark:text-cyan-400 shadow-sm border border-cyan-500/30'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                }`}
-              >
-                WeDo (12)
-              </button>
+            {/* App Switcher Tabs / Chips (1. CaloGram, 2. WeDo, 3. MonoMetro - NO count numbers) */}
+            <div className="flex items-center gap-2 p-1.5 bg-slate-100 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 mb-4 shadow-sm">
               <button
                 onClick={() => handleTabChange('calogram')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                   activeApp === 'calogram'
                     ? 'bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-500/30'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
-                CaloGram (28)
+                CaloGram
+              </button>
+              <button
+                onClick={() => handleTabChange('wedo')}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                  activeApp === 'wedo'
+                    ? 'bg-white dark:bg-slate-800 text-cyan-600 dark:text-cyan-400 shadow-sm border border-cyan-500/30'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                WeDo
+              </button>
+              <button
+                onClick={() => handleTabChange('monometro')}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                  activeApp === 'monometro'
+                    ? 'bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-sm border border-teal-500/30'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                MonoMetro
               </button>
             </div>
 
             {/* Phone Frame Container */}
             <div 
-              className="relative group w-full max-w-[340px] sm:max-w-[360px]"
+              className="relative group w-full max-w-[320px] sm:max-w-[340px]"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
               {/* Glow Accent */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 rounded-[44px] blur-lg opacity-25 group-hover:opacity-45 transition duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-teal-500 rounded-[44px] blur-lg opacity-25 group-hover:opacity-45 transition duration-500" />
 
               {/* Phone Body */}
               <div className="relative rounded-[40px] p-2.5 bg-slate-900 dark:bg-slate-950 border-[3px] border-slate-700 dark:border-slate-800 shadow-2xl overflow-hidden">
@@ -291,10 +267,10 @@ export default function Hero({ onSelectProject }: HeroProps) {
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
 
-                {/* Screen Viewport */}
+                {/* Screen Viewport (Clean, full view without obscuring bottom cards or badges) */}
                 <div className="relative rounded-[32px] overflow-hidden aspect-[9/18.5] bg-slate-950 flex flex-col justify-between">
                   
-                  {/* Image Display with Smooth Transition */}
+                  {/* Image Display */}
                   <div className="relative w-full h-full bg-slate-900">
                     <img
                       src={imgSrc}
@@ -303,96 +279,40 @@ export default function Hero({ onSelectProject }: HeroProps) {
                       className="w-full h-full object-contain object-top transition-all duration-500 transform scale-100 group-hover:scale-[1.01]"
                     />
 
-                    {/* Manual Navigation Overlay Arrows */}
+                    {/* Manual Navigation Overlay Arrows (on hover) */}
                     <button
                       onClick={prevSlide}
                       aria-label="Previous slide"
-                      className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/70 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/70 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 z-30"
                     >
                       <ChevronLeft className="w-4 h-4" />
                     </button>
                     <button
                       onClick={nextSlide}
                       aria-label="Next slide"
-                      className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/70 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/70 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 z-30"
                     >
                       <ChevronRight className="w-4 h-4" />
                     </button>
 
-                    {/* Top Right Counter & Pause Status */}
-                    <div className="absolute top-10 right-3 flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[10px] font-mono text-slate-300 z-20">
+                    {/* Top Right Pause / Resume Control Pill (Subtle & Clean) */}
+                    <div className="absolute top-9 right-3 flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-950/70 backdrop-blur-md border border-slate-800/80 text-[10px] font-mono text-slate-300 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button 
                         onClick={() => setIsPaused(!isPaused)} 
                         aria-label={isPaused ? 'Resume auto slide' : 'Pause auto slide'}
-                        className="text-cyan-400 hover:text-cyan-300"
+                        className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
                       >
                         {isPaused ? <Play className="w-3 h-3" /> : <Pause className="w-3 h-3" />}
+                        <span>{isPaused ? 'Paused' : 'Auto'}</span>
                       </button>
-                      <span>{slideIndex + 1}/{slides.length}</span>
                     </div>
 
-                    {/* Bottom Floating Info Pill inside phone */}
-                    <div className="absolute inset-x-2 bottom-3 p-3 bg-slate-900/95 backdrop-blur-md rounded-2xl border border-slate-800 shadow-lg text-left z-20">
-                      <div className="flex items-center justify-between">
-                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border ${currentApp.pillBg}`}>
-                          {currentApp.badge}
-                        </span>
-                        {onSelectProject && (
-                          <button
-                            onClick={() => onSelectProject(currentApp.id)}
-                            className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1"
-                          >
-                            <span>Details</span>
-                            <ExternalLink className="w-3 h-3" />
-                          </button>
-                        )}
-                      </div>
-                      <h4 className="text-sm font-bold text-white mt-1">
-                        {currentApp.name}
-                      </h4>
-                      <p className="text-xs text-slate-300 line-clamp-1">
-                        {currentApp.tagline}
-                      </p>
-                      
-                      {/* Tech Chips */}
-                      <div className="flex flex-wrap gap-1 mt-2">
-                        {currentApp.stack.map((tech) => (
-                          <span
-                            key={tech}
-                            className="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
                   </div>
 
                 </div>
 
                 {/* Home Indicator Bar */}
                 <div className="w-28 h-1 bg-slate-700 rounded-full mx-auto mt-2" />
-              </div>
-
-              {/* Floating Architectural Badges */}
-              <div className="absolute -bottom-4 -left-4 p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-md hidden sm:flex items-center gap-2.5 animate-float">
-                <div className="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-slate-900 dark:text-white">Clean Architecture</div>
-                  <div className="text-[10px] text-slate-500 dark:text-slate-400">Strict Layer Isolation</div>
-                </div>
-              </div>
-
-              <div className="absolute -top-4 -right-4 p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-md hidden sm:flex items-center gap-2.5 animate-float" style={{ animationDelay: '1.5s' }}>
-                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                  <Layers className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-slate-900 dark:text-white">BLoC & Cubit</div>
-                  <div className="text-[10px] text-slate-500 dark:text-slate-400">Predictable State Flows</div>
-                </div>
               </div>
 
             </div>

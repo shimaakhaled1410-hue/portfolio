@@ -340,12 +340,12 @@ export const experiences: Experience[] = [
 
 export const educations: Education[] = [
   {
-    degree: 'Bachelor of Science in Computer Science',
+    degree: 'Bachelor in Computer Science',
     institution: 'Ain Shams University',
     faculty: 'Faculty of Computer and Information Science (FCIS)',
     location: 'Cairo, Egypt',
-    period: '09/2022 - 07/2026',
-    status: 'In Progress (Senior Year)',
+    period: '2022 – 2026',
+    status: '',
     coursework: [
       'Data Structures & Algorithms',
       'Object-Oriented Programming (OOP)',
@@ -358,7 +358,7 @@ export const educations: Education[] = [
     ],
     highlights: [
       'Solid Computer Science foundation with focus on software architecture and algorithm optimization.',
-      'Core Mobile Lead for 6-member Graduation Project (Trivio), building 30+ interactive user flows.',
+      'Collaborated on a 6-member graduation project (Trivio), engineering scalable Flutter architectures and modern UI components.',
     ],
   },
 ];
