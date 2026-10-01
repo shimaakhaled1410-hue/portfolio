@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { Project } from '@/types';
 import { 
   X, 
-  ExternalLink, 
   ShieldCheck, 
   CheckCircle2, 
   Play, 
@@ -38,16 +37,16 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-5xl my-auto rounded-3xl bg-[#090d16] border border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
+        className="relative w-full max-w-5xl my-auto rounded-3xl bg-white dark:bg-[#090d16] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header Bar */}
-        <div className="p-4 sm:p-6 border-b border-slate-800/80 flex items-center justify-between shrink-0 bg-[#070a11]/90 backdrop-blur-md">
+        <div className="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800/80 flex items-center justify-between shrink-0 bg-slate-50 dark:bg-[#070a11]/90 backdrop-blur-md">
           <div className="flex items-center gap-3">
-            <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-cyan-950/60 text-cyan-400 border border-cyan-800/60">
+            <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 border border-cyan-300 dark:border-cyan-800/60">
               {project.category}
             </span>
-            <h3 className="text-lg sm:text-xl font-bold text-white truncate">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white truncate">
               {project.name}
             </h3>
           </div>
@@ -57,14 +56,14 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              className="p-2 text-slate-400 hover:text-white rounded-lg border border-slate-800 hover:bg-slate-800 transition-colors"
+              className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               title="View on GitHub"
             >
               <GithubIcon className="w-4 h-4" />
             </a>
             <button
               onClick={onClose}
-              className="p-2 text-slate-400 hover:text-white rounded-lg border border-slate-800 hover:bg-slate-800 transition-colors"
+              className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               aria-label="Close project modal"
             >
               <X className="w-5 h-5" />
@@ -73,13 +72,13 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
         </div>
 
         {/* Modal Navigation Tabs */}
-        <div className="flex items-center gap-2 px-6 pt-3 pb-1 border-b border-slate-800 shrink-0 text-xs sm:text-sm font-semibold bg-[#080c16]">
+        <div className="flex items-center gap-2 px-6 pt-3 pb-1 border-b border-slate-200 dark:border-slate-800 shrink-0 text-xs sm:text-sm font-semibold bg-slate-100/50 dark:bg-[#080c16]">
           <button
             onClick={() => setActiveTab('overview')}
             className={`pb-2.5 px-2 border-b-2 transition-colors ${
               activeTab === 'overview'
-                ? 'border-cyan-400 text-cyan-400'
-                : 'border-transparent text-slate-400 hover:text-white'
+                ? 'border-cyan-500 text-cyan-600 dark:text-cyan-400 font-bold'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             Overview & Problem/Solution
@@ -88,8 +87,8 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
             onClick={() => setActiveTab('architecture')}
             className={`pb-2.5 px-2 border-b-2 transition-colors ${
               activeTab === 'architecture'
-                ? 'border-cyan-400 text-cyan-400'
-                : 'border-transparent text-slate-400 hover:text-white'
+                ? 'border-cyan-500 text-cyan-600 dark:text-cyan-400 font-bold'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             Clean Arch & State Flow
@@ -98,8 +97,8 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
             onClick={() => setActiveTab('gallery')}
             className={`pb-2.5 px-2 border-b-2 transition-colors ${
               activeTab === 'gallery'
-                ? 'border-cyan-400 text-cyan-400'
-                : 'border-transparent text-slate-400 hover:text-white'
+                ? 'border-cyan-500 text-cyan-600 dark:text-cyan-400 font-bold'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             Screenshots & Gallery ({project.gallery.length})
@@ -114,12 +113,12 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
             <div className="space-y-6">
               
               {/* Tagline & Quick Metrics */}
-              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                  <h4 className="text-base sm:text-lg font-bold text-white">
+                  <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                     {project.tagline}
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-300 mt-1">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
                     {project.description}
                   </p>
                 </div>
@@ -127,11 +126,11 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
                 {project.metrics && (
                   <div className="flex items-center gap-3 shrink-0">
                     {project.metrics.map((m, idx) => (
-                      <div key={idx} className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-center">
-                        <div className="text-xs sm:text-sm font-bold text-cyan-400 font-mono">
+                      <div key={idx} className="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center">
+                        <div className="text-xs sm:text-sm font-bold text-cyan-600 dark:text-cyan-400 font-mono">
                           {m.value}
                         </div>
-                        <div className="text-[10px] text-slate-400">
+                        <div className="text-[10px] text-slate-500 dark:text-slate-400">
                           {m.label}
                         </div>
                       </div>
@@ -142,20 +141,20 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
 
               {/* Problem vs Solution Split */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="p-5 rounded-2xl bg-red-950/20 border border-red-900/40">
-                  <div className="text-xs font-bold uppercase tracking-wider text-red-400 mb-2">
+                <div className="p-5 rounded-2xl bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/40">
+                  <div className="text-xs font-bold uppercase tracking-wider text-red-600 dark:text-red-400 mb-2">
                     The Problem
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                     {project.problem}
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-emerald-950/20 border border-emerald-900/40">
-                  <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2">
+                <div className="p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/40">
+                  <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-2">
                     The Solution
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                     {project.solution}
                   </p>
                 </div>
@@ -163,14 +162,14 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
 
               {/* Technologies Matrix */}
               <div>
-                <h5 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">
+                <h5 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2.5">
                   Technologies & Libraries
                 </h5>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-900 text-slate-200 border border-slate-800 font-mono"
+                      className="px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-800 font-mono"
                     >
                       {tech}
                     </span>
@@ -209,18 +208,18 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
           {activeTab === 'architecture' && (
             <div className="space-y-6">
               
-              <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-cyan-400" />
+              <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                   <span>Key Architectural Highlights</span>
                 </h4>
                 <ul className="space-y-2.5">
                   {project.architecturalHighlights.map((highlight, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed"
+                      className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -228,42 +227,42 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
               </div>
 
               {/* Clean Architecture Diagram */}
-              <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              <div className="p-6 rounded-2xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-4">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Clean Architecture Decoupling Diagram
                 </h4>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                  <div className="p-4 rounded-xl bg-cyan-950/30 border border-cyan-900/60">
-                    <span className="text-[10px] font-bold uppercase text-cyan-400 block mb-1">
+                  <div className="p-4 rounded-xl bg-cyan-50 dark:bg-cyan-950/30 border border-cyan-200 dark:border-cyan-900/60">
+                    <span className="text-[10px] font-bold uppercase text-cyan-600 dark:text-cyan-400 block mb-1">
                       1. Presentation Layer
                     </span>
-                    <h5 className="font-bold text-white mb-2">Widgets & BLoC</h5>
-                    <ul className="space-y-1 text-slate-300 text-[11px]">
+                    <h5 className="font-bold text-slate-900 dark:text-white mb-2">Widgets & BLoC</h5>
+                    <ul className="space-y-1 text-slate-700 dark:text-slate-300 text-[11px]">
                       <li>• Screen UI & Theming</li>
                       <li>• Event-driven Cubits</li>
                       <li>• Zero logic in widgets</li>
                     </ul>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-teal-950/30 border border-teal-900/60">
-                    <span className="text-[10px] font-bold uppercase text-teal-400 block mb-1">
+                  <div className="p-4 rounded-xl bg-teal-50 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-900/60">
+                    <span className="text-[10px] font-bold uppercase text-teal-600 dark:text-teal-400 block mb-1">
                       2. Domain Layer
                     </span>
-                    <h5 className="font-bold text-white mb-2">Use Cases & Entities</h5>
-                    <ul className="space-y-1 text-slate-300 text-[11px]">
+                    <h5 className="font-bold text-slate-900 dark:text-white mb-2">Use Cases & Entities</h5>
+                    <ul className="space-y-1 text-slate-700 dark:text-slate-300 text-[11px]">
                       <li>• Pure Dart Business Rules</li>
                       <li>• Abstract Contracts</li>
                       <li>• Functional Failure Handling</li>
                     </ul>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-emerald-950/30 border border-emerald-900/60">
-                    <span className="text-[10px] font-bold uppercase text-emerald-400 block mb-1">
+                  <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/60">
+                    <span className="text-[10px] font-bold uppercase text-emerald-600 dark:text-emerald-400 block mb-1">
                       3. Data Layer
                     </span>
-                    <h5 className="font-bold text-white mb-2">Data Sources & Mappers</h5>
-                    <ul className="space-y-1 text-slate-300 text-[11px]">
+                    <h5 className="font-bold text-slate-900 dark:text-white mb-2">Data Sources & Mappers</h5>
+                    <ul className="space-y-1 text-slate-700 dark:text-slate-300 text-[11px]">
                       <li>• Firestore & REST Services</li>
                       <li>• Local Cache & Prefs</li>
                       <li>• Model Serialization</li>
@@ -281,7 +280,7 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
             <div className="space-y-6">
               {currentGalleryItem && (
                 <div className="space-y-3">
-                  <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl bg-slate-950 overflow-hidden border border-slate-800 shadow-inner flex items-center justify-center">
+                  <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl bg-slate-900 overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner flex items-center justify-center">
                     <Image
                       src={currentGalleryItem.image}
                       alt={currentGalleryItem.title}
@@ -289,11 +288,11 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
                       className="object-contain p-2"
                     />
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                    <div className="text-xs sm:text-sm font-bold text-white">
+                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
                       {currentGalleryItem.title}
                     </div>
-                    <div className="text-xs text-slate-400 mt-0.5">
+                    <div className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
                       {currentGalleryItem.description}
                     </div>
                   </div>
@@ -308,8 +307,8 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
                     onClick={() => setActiveImageIndex(idx)}
                     className={`relative aspect-video rounded-xl overflow-hidden border-2 transition-all ${
                       activeImageIndex === idx
-                        ? 'border-cyan-400 ring-2 ring-cyan-500/30'
-                        : 'border-slate-800 opacity-70 hover:opacity-100'
+                        ? 'border-cyan-500 ring-2 ring-cyan-500/30'
+                        : 'border-slate-200 dark:border-slate-800 opacity-70 hover:opacity-100'
                     }`}
                   >
                     <Image
@@ -327,9 +326,9 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 sm:p-5 border-t border-slate-800 bg-[#070a11]/90 flex flex-wrap items-center justify-between gap-3 shrink-0">
-          <div className="text-xs text-slate-400">
-            Engineered by <strong className="text-white">Shimaa Khaled</strong>
+        <div className="p-4 sm:p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#070a11]/90 flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <div className="text-xs text-slate-500 dark:text-slate-400">
+            Engineered by <strong className="text-slate-900 dark:text-white">Shimaa Khaled</strong>
           </div>
 
           <div className="flex items-center gap-2">
@@ -337,7 +336,7 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-300 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-200 dark:bg-slate-900 hover:bg-slate-300 dark:hover:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-800 transition-colors"
             >
               <GithubIcon className="w-3.5 h-3.5" />
               <span>Source Code</span>
@@ -355,4 +354,3 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
     </div>
   );
 }
-

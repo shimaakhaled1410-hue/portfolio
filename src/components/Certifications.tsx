@@ -11,28 +11,26 @@ import {
   Eye, 
   X, 
   ShieldCheck, 
-  Building,
-  Sparkles,
-  CheckCircle2
+  Building
 } from 'lucide-react';
 
 export default function Certifications() {
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
 
   return (
-    <section id="certifications" className="py-20 lg:py-28 relative">
+    <section id="certifications" className="py-20 lg:py-28 relative bg-slate-50/50 dark:bg-[#070a11]/50 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-cyan-950/60 text-cyan-400 border border-cyan-800 mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 border border-cyan-300 dark:border-cyan-800 mb-3">
             <Award className="w-3.5 h-3.5" />
             <span>Verified Credentials</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Professional Certifications & Training
           </h2>
-          <p className="mt-3 text-slate-400 text-base sm:text-lg">
+          <p className="mt-3 text-slate-600 dark:text-slate-400 text-base sm:text-lg">
             Specialized engineering programs from government IT institutes and academies.
           </p>
         </div>
@@ -46,12 +44,12 @@ export default function Certifications() {
               <div
                 key={cert.id}
                 onClick={() => setSelectedCert(cert)}
-                className="rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/40 shadow-sm hover:shadow-lg hover:shadow-cyan-500/5 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer h-full"
+                className="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 shadow-sm hover:shadow-lg hover:shadow-cyan-500/5 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer h-full"
               >
                 <div className="flex flex-col flex-1">
                   
                   {/* Certificate Header Media: Image OR Polished Branded Badge */}
-                  <div className="relative aspect-[16/10] w-full bg-slate-950 overflow-hidden border-b border-slate-800 flex items-center justify-center">
+                  <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-slate-950 overflow-hidden border-b border-slate-200 dark:border-slate-800 flex items-center justify-center">
                     {hasImage ? (
                       <Image
                         src={cert.image}
@@ -62,7 +60,7 @@ export default function Certifications() {
                       />
                     ) : (
                       /* Branded Credential Badge Fallback */
-                      <div className="w-full h-full bg-gradient-to-br from-cyan-950/60 via-slate-950 to-emerald-950/40 p-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
+                      <div className="w-full h-full bg-gradient-to-br from-cyan-900/20 via-slate-900 to-emerald-900/20 p-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
                         <div className="absolute top-2 right-2 opacity-10">
                           <Award className="w-24 h-24 text-cyan-400" />
                         </div>
@@ -98,17 +96,17 @@ export default function Certifications() {
                   {/* Body Content */}
                   <div className="p-5 sm:p-6 space-y-3 flex-1 flex flex-col justify-between">
                     <div className="space-y-2">
-                      <div className="flex items-center gap-1.5 text-xs text-cyan-400 font-semibold">
+                      <div className="flex items-center gap-1.5 text-xs text-cyan-600 dark:text-cyan-400 font-semibold">
                         <Building className="w-3.5 h-3.5" />
                         <span>{cert.issuer}</span>
                       </div>
 
-                      <h3 className="text-base font-bold text-white leading-snug group-hover:text-cyan-400 transition-colors">
+                      <h3 className="text-base font-bold text-slate-900 dark:text-white leading-snug group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                         {cert.title}
                       </h3>
 
-                      <div className="flex items-center gap-2 text-xs text-slate-400">
-                        <Clock className="w-3.5 h-3.5 text-slate-500" />
+                      <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <Clock className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                         <span>{cert.dateOrHours}</span>
                         {cert.certificateId && (
                           <>
@@ -120,7 +118,7 @@ export default function Certifications() {
                         )}
                       </div>
 
-                      <p className="text-xs text-slate-300 leading-relaxed line-clamp-2">
+                      <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2">
                         {cert.description}
                       </p>
                     </div>
@@ -130,7 +128,7 @@ export default function Certifications() {
                       {cert.skillsAcquired.map((skill) => (
                         <span
                           key={skill}
-                          className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/60 font-mono"
+                          className="text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60 font-mono"
                         >
                           {skill}
                         </span>
@@ -142,8 +140,8 @@ export default function Certifications() {
                 </div>
 
                 {/* Footer Action */}
-                <div className="p-5 sm:p-6 pt-0 border-t border-slate-800/60 mt-2">
-                  <span className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-cyan-400 bg-cyan-950/40 hover:bg-cyan-900/50 border border-cyan-900/60 transition-colors">
+                <div className="p-5 sm:p-6 pt-0 border-t border-slate-100 dark:border-slate-800/60 mt-2">
+                  <span className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-cyan-700 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-100 dark:hover:bg-cyan-900/50 border border-cyan-200 dark:border-cyan-900/60 transition-colors">
                     <Eye className="w-3.5 h-3.5" />
                     <span>Inspect Credential</span>
                   </span>
@@ -158,22 +156,22 @@ export default function Certifications() {
         {selectedCert && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
             <div 
-              className="relative w-full max-w-3xl rounded-2xl bg-[#090d16] border border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
+              className="relative w-full max-w-3xl rounded-2xl bg-white dark:bg-[#090d16] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between bg-[#070a11]">
+              <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-[#070a11]">
                 <div>
-                  <h3 className="text-sm sm:text-base font-bold text-white">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                     {selectedCert.title}
                   </h3>
-                  <p className="text-xs text-cyan-400 mt-0.5">
+                  <p className="text-xs text-cyan-600 dark:text-cyan-400 mt-0.5">
                     {selectedCert.issuer} • {selectedCert.dateOrHours}
                   </p>
                 </div>
                 <button
                   onClick={() => setSelectedCert(null)}
-                  className="p-1.5 rounded-lg text-slate-400 hover:text-white border border-slate-800 transition-colors"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 transition-colors"
                   aria-label="Close certificate lightbox"
                 >
                   <X className="w-5 h-5" />
@@ -185,7 +183,7 @@ export default function Certifications() {
                 
                 {/* Media Preview or Branded Banner */}
                 {selectedCert.image ? (
-                  <div className="relative aspect-[16/10] w-full bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex items-center justify-center p-2">
+                  <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-slate-950 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 flex items-center justify-center p-2">
                     <Image
                       src={selectedCert.image}
                       alt={selectedCert.title}
@@ -205,21 +203,21 @@ export default function Certifications() {
                 )}
 
                 {/* Details Section */}
-                <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-                  <h5 className="font-bold text-white uppercase text-xs tracking-wider text-slate-400">
+                <div className="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                  <h5 className="font-bold uppercase text-xs tracking-wider text-slate-500 dark:text-slate-400">
                     Program Overview & Skills
                   </h5>
-                  <p className="leading-relaxed text-slate-300">
+                  <p className="leading-relaxed text-slate-700 dark:text-slate-300">
                     {selectedCert.description}
                   </p>
 
                   <div className="pt-2">
-                    <span className="text-xs font-bold text-slate-400 block mb-2">Competencies Acquired:</span>
+                    <span className="text-xs font-bold text-slate-500 dark:text-slate-400 block mb-2">Competencies Acquired:</span>
                     <div className="flex flex-wrap gap-1.5">
                       {selectedCert.skillsAcquired.map((skill) => (
                         <span
                           key={skill}
-                          className="text-xs px-2.5 py-1 rounded-lg bg-slate-900 text-slate-200 border border-slate-800 font-mono"
+                          className="text-xs px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 font-mono"
                         >
                           {skill}
                         </span>
@@ -231,10 +229,10 @@ export default function Certifications() {
               </div>
 
               {/* Footer */}
-              <div className="p-4 bg-[#070a11] border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <div className="p-4 bg-slate-50 dark:bg-[#070a11] border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
                 {selectedCert.certificateId && (
-                  <span className="font-mono text-slate-400">
-                    Verification ID: <strong className="text-white">{selectedCert.certificateId}</strong>
+                  <span className="font-mono text-slate-500 dark:text-slate-400">
+                    Verification ID: <strong className="text-slate-900 dark:text-white">{selectedCert.certificateId}</strong>
                   </span>
                 )}
                 <div className="flex items-center gap-2 ml-auto">
@@ -243,7 +241,7 @@ export default function Certifications() {
                       href={selectedCert.image}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold transition-colors"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                       <span>Full Image</span>
@@ -266,4 +264,3 @@ export default function Certifications() {
     </section>
   );
 }
-

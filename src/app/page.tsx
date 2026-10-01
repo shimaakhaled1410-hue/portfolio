@@ -33,7 +33,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen relative flex flex-col bg-[#070a11] text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-400">
+    <main className="min-h-screen relative flex flex-col bg-white dark:bg-[#070a11] text-slate-900 dark:text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-500 transition-colors duration-300">
       {/* Navigation */}
       <Navbar />
 
@@ -43,15 +43,15 @@ export default function Home() {
           onSelectProject={handleSelectProjectById}
         />
         <About />
-        <Skills />
-        <Experience />
         <Education />
+        <Skills />
         <Projects 
           onSelectProject={(p) => setSelectedProject(p)}
           onOpenVideo={handleOpenVideo}
         />
-        <Services />
+        <Experience />
         <Certifications />
+        <Services />
         <Contact />
       </div>
 
