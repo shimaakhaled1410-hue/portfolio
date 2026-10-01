@@ -332,12 +332,25 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
               {currentGalleryItem && (
                 <div className="space-y-3">
                   <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl bg-slate-900 overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner flex items-center justify-center">
-                    <Image
-                      src={currentGalleryItem.image}
-                      alt={currentGalleryItem.title}
-                      fill
-                      className="object-contain p-2"
-                    />
+                    {project.id === 'trivio' ? (
+                      <div className="flex items-center justify-center w-full h-full p-8">
+                        <div className="relative w-[50%] max-w-[240px] aspect-[3/1] bg-white/95 rounded-2xl shadow-lg shadow-black/40 flex items-center justify-center p-4">
+                          <Image
+                            src={currentGalleryItem.image}
+                            alt={currentGalleryItem.title}
+                            fill
+                            className="object-contain p-3"
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <Image
+                        src={currentGalleryItem.image}
+                        alt={currentGalleryItem.title}
+                        fill
+                        className="object-contain p-2"
+                      />
+                    )}
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                     <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">

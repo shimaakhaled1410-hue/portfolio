@@ -80,17 +80,28 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
               <div>
                 {/* Cover Image */}
                 <div className="relative aspect-[16/9] w-full bg-slate-950 overflow-hidden border-b border-slate-200 dark:border-slate-800">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className={`transition-transform duration-500 ${
-                      project.id === 'trivio'
-                        ? 'object-contain p-8 group-hover:scale-105'
-                        : 'object-cover group-hover:scale-105'
-                    }`}
-                  />
+                  {project.id === 'trivio' ? (
+                    /* Trivio: logo centred in a frosted pill so black text is visible on dark bg */
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative w-[55%] max-w-[220px] aspect-[3/1] bg-white/95 dark:bg-white/90 rounded-2xl shadow-lg shadow-black/30 ring-1 ring-white/20 flex items-center justify-center p-4 group-hover:scale-105 transition-transform duration-500">
+                        <Image
+                          src={project.image}
+                          alt={project.name}
+                          fill
+                          sizes="220px"
+                          className="object-contain p-3"
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
 
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
