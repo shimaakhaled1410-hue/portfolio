@@ -12,6 +12,8 @@ export interface Project {
   image: string;
   gallery: { title: string; image: string; description: string }[];
   videoUrl?: string;
+  demoVideoUrl?: string;
+  marketingVideoUrl?: string;
   featured: boolean;
   architecturalHighlights: string[];
   metrics?: { label: string; value: string }[];

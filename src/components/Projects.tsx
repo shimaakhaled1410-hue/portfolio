@@ -8,7 +8,8 @@ import {
   FolderGit2, 
   ArrowRight, 
   Play, 
-  Eye
+  Eye,
+  Video
 } from 'lucide-react';
 import { GithubIcon } from '@/components/Icons';
 
@@ -77,14 +78,18 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
               className="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 shadow-md hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
             >
               <div>
-                {/* 16:9 Cover Image Container with object-fit: cover */}
+                {/* Cover Image */}
                 <div className="relative aspect-[16/9] w-full bg-slate-950 overflow-hidden border-b border-slate-200 dark:border-slate-800">
                   <Image
                     src={project.image}
                     alt={project.name}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={`transition-transform duration-500 ${
+                      project.id === 'trivio'
+                        ? 'object-contain p-8 group-hover:scale-105'
+                        : 'object-cover group-hover:scale-105'
+                    }`}
                   />
 
                   {/* Gradient Overlay */}
@@ -102,8 +107,38 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
                     )}
                   </div>
 
-                  {/* Video Indicator pill if available */}
-                  {project.videoUrl && (
+                  {/* Dual YouTube buttons for Trivio */}
+                  {(project.demoVideoUrl || project.marketingVideoUrl) && (
+                    <div className="absolute bottom-3 right-3 flex items-center gap-1.5">
+                      {project.demoVideoUrl && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onOpenVideo(project.demoVideoUrl!, `${project.name} — Demo`);
+                          }}
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-red-600/90 hover:bg-red-500 text-white backdrop-blur-md transition-colors"
+                        >
+                          <Play className="w-3 h-3 fill-current" />
+                          <span>Demo</span>
+                        </button>
+                      )}
+                      {project.marketingVideoUrl && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onOpenVideo(project.marketingVideoUrl!, `${project.name} — Marketing`);
+                          }}
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800/90 hover:bg-slate-700 text-cyan-300 border border-cyan-800/60 backdrop-blur-md transition-colors"
+                        >
+                          <Video className="w-3 h-3" />
+                          <span>Marketing</span>
+                        </button>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Single video button for other projects */}
+                  {project.videoUrl && !project.demoVideoUrl && !project.marketingVideoUrl && (
                     <button
                       onClick={(e) => {
                         e.stopPropagation();

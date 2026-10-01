@@ -210,16 +210,17 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/GeorgeEhab22/Trivio-flutter',
     demoUrl: 'https://github.com/GeorgeEhab22/Trivio-flutter',
-    image: '/assets/CaloGram_Freelancing_Project_Dashboard.png',
-    videoUrl: '/assets/Trivio_Graduation_Project_Video_Demo.mp4',
+    image: '/assets/trivioLogo.png',
+    demoVideoUrl: 'https://youtube.com/shorts/ppA-4b6YRaA',
+    marketingVideoUrl: 'https://youtu.be/iIn8HnT5d4c',
     gallery: [
       {
-        title: 'Video Demo Walkthrough',
-        image: '/assets/CaloGram_Freelancing_Project_Dashboard.png',
+        title: 'Trivio — Football Community Platform',
+        image: '/assets/trivioLogo.png',
         description: 'Full live demonstration of Trivio football social features, group management, live match feeds, and community interactions.',
       },
     ],
-    featured: true,
+    featured: false,
     architecturalHighlights: [
       'Architected 30+ distinct screen user flows within the complex Groups & Social Community module',
       'Nested comments tree structure with optimistic like and reaction state transitions',

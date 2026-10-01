@@ -177,8 +177,59 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
                 </div>
               </div>
 
-              {/* Video Walkthrough trigger */}
-              {project.videoUrl && (
+              {/* Dual YouTube Video section (e.g. Trivio) */}
+              {(project.demoVideoUrl || project.marketingVideoUrl) && (
+                <div className="space-y-4">
+                  <h5 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    Project Videos
+                  </h5>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {project.demoVideoUrl && (
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <Play className="w-4 h-4 text-red-500 fill-current" />
+                          <span className="text-xs font-bold text-slate-900 dark:text-white">Demo Video</span>
+                        </div>
+                        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950">
+                          <iframe
+                            src={project.demoVideoUrl
+                              .replace('youtube.com/shorts/', 'youtube.com/embed/')
+                              .replace('youtu.be/', 'youtube.com/embed/')
+                              .replace('watch?v=', 'embed/')}
+                            title={`${project.name} — Demo`}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                          />
+                        </div>
+                      </div>
+                    )}
+                    {project.marketingVideoUrl && (
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <Film className="w-4 h-4 text-cyan-500" />
+                          <span className="text-xs font-bold text-slate-900 dark:text-white">Marketing Video</span>
+                        </div>
+                        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950">
+                          <iframe
+                            src={project.marketingVideoUrl
+                              .replace('youtube.com/shorts/', 'youtube.com/embed/')
+                              .replace('youtu.be/', 'youtube.com/embed/')
+                              .replace('watch?v=', 'embed/')}
+                            title={`${project.name} — Marketing`}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Single Video Walkthrough trigger (non-Trivio projects) */}
+              {project.videoUrl && !project.demoVideoUrl && !project.marketingVideoUrl && (
                 <div className="p-5 rounded-2xl bg-slate-900 text-white border border-slate-800 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-cyan-600 flex items-center justify-center text-white">
