@@ -267,11 +267,11 @@ export default function Hero({ onSelectProject }: HeroProps) {
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
 
-                {/* Screen Viewport with Top & Bottom Safe Area Padding */}
-                <div className="relative rounded-[32px] overflow-hidden aspect-[9/18.5] bg-slate-950 flex flex-col justify-between pt-11 pb-5 px-1">
+                {/* Screen Viewport with Increased Top & Bottom Safe Area Padding */}
+                <div className="relative rounded-[32px] overflow-hidden aspect-[9/18.5] bg-slate-950 flex flex-col justify-between pt-14 sm:pt-16 pb-10 sm:pb-12 px-2 sm:px-2.5">
                   
                   {/* Image Display Container */}
-                  <div className="relative w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden rounded-[20px]">
+                  <div className="relative w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden rounded-[18px]">
                     <img
                       src={imgSrc}
                       alt={`${currentApp.name} slide ${slideIndex + 1}`}
@@ -283,14 +283,14 @@ export default function Hero({ onSelectProject }: HeroProps) {
                     <button
                       onClick={prevSlide}
                       aria-label="Previous slide"
-                      className="absolute left-1.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/75 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 z-30"
+                      className="absolute left-1 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/75 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 z-30"
                     >
                       <ChevronLeft className="w-4 h-4" />
                     </button>
                     <button
                       onClick={nextSlide}
                       aria-label="Next slide"
-                      className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/75 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 z-30"
+                      className="absolute right-1 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/75 text-white hover:bg-slate-900 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 z-30"
                     >
                       <ChevronRight className="w-4 h-4" />
                     </button>
