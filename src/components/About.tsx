@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { personalInfo } from '@/data/portfolioData';
 import { 
   User, 
@@ -58,8 +59,7 @@ export default function About() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 border border-cyan-300 dark:border-cyan-800 mb-3">
-            <User className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full text-sm sm:text-base font-semibold uppercase tracking-wider bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 border border-cyan-300 dark:border-cyan-800 mb-3">
             <span>About Me</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -70,16 +70,18 @@ export default function About() {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto space-y-10">
           
-          {/* Bio & Profile Overview (Balanced 2-Column Row) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+          {/* Bio Text & Stylized Photo (Balanced 2-Column Row) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            {/* Left Column: Personal Statement */}
-            <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-bl-full pointer-events-none" />
+            {/* Left Column: Bio Text & Profile Overview */}
+            <div className="lg:col-span-7 space-y-6">
               
-              <div>
+              {/* Professional Philosophy Card */}
+              <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-bl-full pointer-events-none" />
+                
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
                   Professional Philosophy
                 </h3>
@@ -94,11 +96,9 @@ export default function About() {
                   </p>
                 </div>
               </div>
-            </div>
 
-            {/* Right Column: Profile Overview Card */}
-            <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
-              <div>
+              {/* Profile Overview Card */}
+              <div className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-sm">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-3 mb-4">
                   Quick Profile Overview
                 </h3>
@@ -181,12 +181,45 @@ export default function About() {
                   </div>
                 </div>
               </div>
+
+            </div>
+
+            {/* Right Column: Stylized Profile Photo Frame */}
+            <div className="lg:col-span-5 flex items-center justify-center">
+              <div className="relative w-full max-w-sm sm:max-w-md mx-auto group">
+                {/* Soft ambient background glow */}
+                <div className="absolute -inset-2 bg-gradient-to-tr from-cyan-500/20 via-teal-500/20 to-emerald-500/20 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition duration-500 pointer-events-none" />
+                
+                {/* Stylized photo frame */}
+                <div className="relative rounded-3xl overflow-hidden border border-teal-500/20 bg-slate-900/60 shadow-2xl shadow-teal-500/10 aspect-[3/4] w-full">
+                  <Image
+                    src="/assets/Shimaa Khaled.jpg"
+                    alt={personalInfo.name}
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 384px, 448px"
+                    priority
+                  />
+                  
+                  {/* Subtle bottom vignette and caption badge */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs pointer-events-none">
+                    <div className="bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-teal-500/30 flex items-center gap-2 shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="font-semibold text-white">{personalInfo.name}</span>
+                    </div>
+                    <span className="bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-700/60 text-cyan-300 font-medium shadow-sm">
+                      Flutter Engineer
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
 
-          {/* Engineering Pillars Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Engineering Pillars Grid (4 columns across) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
             {engineeringPillars.map((pillar, idx) => {
               const IconComponent = pillar.icon;
               return (
