@@ -43,13 +43,13 @@ export default function Home() {
           onSelectProject={handleSelectProjectById}
         />
         <About />
-        <Education />
-        <Skills />
         <Projects 
           onSelectProject={(p) => setSelectedProject(p)}
           onOpenVideo={handleOpenVideo}
         />
+        <Skills />
         <Experience />
+        <Education />
         <Certifications />
         <Services />
         <Contact />

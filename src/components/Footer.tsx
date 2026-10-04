@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { personalInfo } from '@/data/portfolioData';
 import { 
   ArrowUp, 
@@ -16,10 +17,10 @@ export default function Footer() {
 
   const navLinks = [
     { label: 'About', href: '#about' },
-    { label: 'Education', href: '#education' },
-    { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
+    { label: 'Education', href: '#education' },
     { label: 'Certifications', href: '#certifications' },
     { label: 'Services', href: '#services' },
     { label: 'Contact', href: '#contact' },
@@ -35,10 +36,14 @@ export default function Footer() {
           {/* Brand & Bio */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-emerald-400 p-[1.5px] shadow-sm">
-                <div className="w-full h-full bg-slate-900 rounded-[9px] flex items-center justify-center font-mono font-bold text-white text-xs">
-                  SK
-                </div>
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-teal-500/40 relative shadow-sm shrink-0">
+                <Image
+                  src="/assets/Shimaa Khaled.jpg"
+                  alt={personalInfo.name}
+                  fill
+                  className="object-cover object-top"
+                  sizes="40px"
+                />
               </div>
               <div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white">

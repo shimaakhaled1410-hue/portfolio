@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from '@/context/ThemeContext';
 import { personalInfo } from '@/data/portfolioData';
@@ -27,12 +28,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const navLinks = [
     { label: 'About', href: '#about' },
-    { label: 'Education', href: '#education' },
-    { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
+    { label: 'Education', href: '#education' },
     { label: 'Certifications', href: '#certifications' },
     { label: 'Services', href: '#services' },
     { label: 'Contact', href: '#contact' },
@@ -48,20 +54,27 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo / Brand */}
-          <Link
+          {/* Logo / Brand with Profile Avatar & Back to Top */}
+          <a
             href="#"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-lg p-1"
+            onClick={handleScrollToTop}
+            aria-label="Back to top"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-lg p-1 cursor-pointer"
           >
-            <div className="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 via-emerald-500 to-teal-400 p-[1.5px] shadow-md group-hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
-                <span className="text-white font-bold text-xs tracking-wider font-mono">
-                  SK
-                </span>
+            <div className="relative group-hover:scale-105 transition-transform duration-300 shrink-0">
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-teal-500/40 relative shadow-sm">
+                <Image
+                  src="/assets/Shimaa Khaled.jpg"
+                  alt={personalInfo.name}
+                  fill
+                  className="object-cover object-top"
+                  sizes="40px"
+                  priority
+                />
               </div>
-              <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+              <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border border-white dark:border-[#070a11]"></span>
               </span>
             </div>
             <div className="flex flex-col">
@@ -77,7 +90,7 @@ export default function Navbar() {
                 Software Engineer
               </span>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
