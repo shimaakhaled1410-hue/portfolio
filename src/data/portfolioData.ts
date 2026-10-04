@@ -44,6 +44,7 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/shimaakhaled1410-hue/CaloGram-flutter',
     demoUrl: 'https://github.com/shimaakhaled1410-hue/CaloGram-flutter',
+    demoVideoUrl: 'https://youtube.com/shorts/h9CH2ZhHmZ4',
     image: '/assets/CaloGram_Freelancing_Project_Dashboard.png',
     gallery: [
       {

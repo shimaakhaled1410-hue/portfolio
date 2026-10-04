@@ -130,7 +130,7 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
                     )}
                   </div>
 
-                  {/* Dual YouTube buttons for Trivio */}
+                  {/* Dual YouTube buttons */}
                   {(project.demoVideoUrl || project.marketingVideoUrl) && (
                     <div className="absolute bottom-3 right-3 flex items-center gap-1.5">
                       {project.demoVideoUrl && (
@@ -140,9 +140,10 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
                             onOpenVideo(project.demoVideoUrl!, `${project.name} — Demo`);
                           }}
                           className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-red-600/90 hover:bg-red-500 text-white backdrop-blur-md transition-colors"
+                          title="Watch Demo"
                         >
                           <Play className="w-3 h-3 fill-current" />
-                          <span>Demo</span>
+                          <span>{project.marketingVideoUrl ? 'Demo' : 'Watch Demo'}</span>
                         </button>
                       )}
                       {project.marketingVideoUrl && (
@@ -206,23 +207,39 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
               </div>
 
               {/* Action Bar */}
-              <div className="p-6 pt-0 border-t border-slate-100 dark:border-slate-800/60 mt-2 flex items-center justify-between">
+              <div className="p-6 pt-0 border-t border-slate-100 dark:border-slate-800/60 mt-2 flex items-center justify-between gap-2">
                 <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 group-hover:text-cyan-500 transition-colors">
                   <Eye className="w-3.5 h-3.5" />
                   <span>View Case Study</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
 
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                  title="View GitHub Source"
-                >
-                  <GithubIcon className="w-4 h-4" />
-                </a>
+                <div className="flex items-center gap-2">
+                  {project.demoVideoUrl && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onOpenVideo(project.demoVideoUrl!, `${project.name} — Demo`);
+                      }}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-red-600/90 hover:bg-red-500 text-white transition-colors"
+                      title="Watch Demo"
+                    >
+                      <Play className="w-3 h-3 fill-current" />
+                      <span>Watch Demo</span>
+                    </button>
+                  )}
+
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    title="View GitHub Source"
+                  >
+                    <GithubIcon className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
 
             </div>
