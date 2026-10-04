@@ -37,21 +37,21 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-5xl my-auto rounded-3xl bg-white dark:bg-[#090d16] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
+        className="relative w-full max-w-5xl my-auto rounded-3xl bg-white dark:bg-[#090d16] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header Bar */}
-        <div className="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800/80 flex items-center justify-between shrink-0 bg-slate-50 dark:bg-[#070a11]/90 backdrop-blur-md">
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 border border-cyan-300 dark:border-cyan-800/60">
+        <div className="p-3 sm:p-6 border-b border-slate-200 dark:border-slate-800/80 flex items-center justify-between shrink-0 bg-slate-50 dark:bg-[#070a11]/90 backdrop-blur-md gap-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2 sm:px-2.5 py-1 rounded-md bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 border border-cyan-300 dark:border-cyan-800/60 shrink-0">
               {project.category}
             </span>
-            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white truncate">
+            <h3 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white truncate">
               {project.name}
             </h3>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <a
               href={project.github}
               target="_blank"
@@ -72,48 +72,48 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
         </div>
 
         {/* Modal Navigation Tabs */}
-        <div className="flex items-center gap-2 px-6 pt-3 pb-1 border-b border-slate-200 dark:border-slate-800 shrink-0 text-xs sm:text-sm font-semibold bg-slate-100/50 dark:bg-[#080c16]">
+        <div className="flex items-center gap-1 sm:gap-2 px-3 sm:px-6 pt-3 pb-1 border-b border-slate-200 dark:border-slate-800 shrink-0 text-xs sm:text-sm font-semibold bg-slate-100/50 dark:bg-[#080c16] overflow-x-auto scrollbar-none">
           <button
             onClick={() => setActiveTab('overview')}
-            className={`pb-2.5 px-2 border-b-2 transition-colors ${
+            className={`pb-2.5 px-2 border-b-2 transition-colors whitespace-nowrap ${
               activeTab === 'overview'
                 ? 'border-cyan-500 text-cyan-600 dark:text-cyan-400 font-bold'
                 : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
-            Overview & Problem/Solution
+            Overview
           </button>
           <button
             onClick={() => setActiveTab('architecture')}
-            className={`pb-2.5 px-2 border-b-2 transition-colors ${
+            className={`pb-2.5 px-2 border-b-2 transition-colors whitespace-nowrap ${
               activeTab === 'architecture'
                 ? 'border-cyan-500 text-cyan-600 dark:text-cyan-400 font-bold'
                 : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
-            Clean Arch & State Flow
+            <span className="hidden sm:inline">Clean Arch & </span>State Flow
           </button>
           <button
             onClick={() => setActiveTab('gallery')}
-            className={`pb-2.5 px-2 border-b-2 transition-colors ${
+            className={`pb-2.5 px-2 border-b-2 transition-colors whitespace-nowrap ${
               activeTab === 'gallery'
                 ? 'border-cyan-500 text-cyan-600 dark:text-cyan-400 font-bold'
                 : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
-            Screenshots & Gallery ({project.gallery.length})
+            Gallery ({project.gallery.length})
           </button>
         </div>
 
         {/* Scrollable Content */}
-        <div className="p-6 overflow-y-auto flex-1 space-y-6">
+        <div className="p-4 sm:p-6 overflow-y-auto flex-1 space-y-5 sm:space-y-6">
           
           {/* TAB 1: OVERVIEW */}
           {activeTab === 'overview' && (
             <div className="space-y-6">
               
               {/* Tagline & Quick Metrics */}
-              <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col gap-4">
                 <div>
                   <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                     {project.tagline}
@@ -124,9 +124,9 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
                 </div>
 
                 {project.metrics && (
-                  <div className="flex items-center gap-3 shrink-0">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     {project.metrics.map((m, idx) => (
-                      <div key={idx} className="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center">
+                      <div key={idx} className="p-2 sm:p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center min-w-[60px]">
                         <div className="text-xs sm:text-sm font-bold text-cyan-600 dark:text-cyan-400 font-mono">
                           {m.value}
                         </div>
@@ -283,7 +283,7 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
                   Clean Architecture Decoupling Diagram
                 </h4>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                   <div className="p-4 rounded-xl bg-cyan-50 dark:bg-cyan-950/30 border border-cyan-200 dark:border-cyan-900/60">
                     <span className="text-[10px] font-bold uppercase text-cyan-600 dark:text-cyan-400 block mb-1">
                       1. Presentation Layer
@@ -390,7 +390,7 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 sm:p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#070a11]/90 flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <div className="p-3 sm:p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#070a11]/90 flex flex-wrap items-center justify-between gap-2 shrink-0">
           <div className="text-xs text-slate-500 dark:text-slate-400">
             Engineered by <strong className="text-slate-900 dark:text-white">Shimaa Khaled</strong>
           </div>

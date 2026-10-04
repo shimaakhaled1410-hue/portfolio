@@ -82,8 +82,8 @@ export default function Contact() {
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Initiate Collaboration</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Let&apos;s Build Together
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Get In Touch
           </h2>
           <p className="mt-3 text-slate-600 dark:text-slate-400 text-base sm:text-lg">
             Have a new mobile app vision or an engineering opportunity? Get in touch.

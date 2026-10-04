@@ -44,25 +44,25 @@ export default function VideoModal({ videoUrl, title, onClose }: VideoModalProps
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl rounded-2xl bg-black border border-slate-800 shadow-2xl overflow-hidden flex flex-col"
+        className="relative w-full max-w-4xl rounded-2xl bg-black border border-slate-800 shadow-2xl overflow-hidden flex flex-col my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-4 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-white">
-          <div className="flex items-center gap-2">
+        <div className="p-3 sm:p-4 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-white">
+          <div className="flex items-center gap-2 min-w-0">
             {isDemo
-              ? <Play className="w-4 h-4 text-red-400 fill-current" />
-              : <Film className="w-4 h-4 text-cyan-400" />
+              ? <Play className="w-4 h-4 text-red-400 fill-current shrink-0" />
+              : <Film className="w-4 h-4 text-cyan-400 shrink-0" />
             }
             <span className="text-sm font-bold truncate">{title}</span>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors shrink-0 touch-manipulation"
             aria-label="Close video"
           >
             <X className="w-5 h-5" />

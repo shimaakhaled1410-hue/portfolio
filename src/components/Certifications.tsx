@@ -27,8 +27,8 @@ export default function Certifications() {
             <Award className="w-3.5 h-3.5" />
             <span>Verified Credentials</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Professional Certifications & Training
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Certifications
           </h2>
           <p className="mt-3 text-slate-600 dark:text-slate-400 text-base sm:text-lg">
             Specialized engineering programs from government IT institutes and academies.

@@ -30,8 +30,8 @@ export default function Services() {
             <Briefcase className="w-3.5 h-3.5" />
             <span>Value & Offerings</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Mobile Engineering Services
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Services
           </h2>
           <p className="mt-3 text-slate-600 dark:text-slate-400 text-base sm:text-lg">
             End-to-end development from architectural design to production mobile deployment.

@@ -42,10 +42,10 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 border border-cyan-300 dark:border-cyan-800 mb-3">
             <FolderGit2 className="w-3.5 h-3.5" />
-            <span>Featured Mobile Software</span>
+            <span>My Projects</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Selected Case Studies
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Featured Projects
           </h2>
           <p className="mt-3 text-slate-600 dark:text-slate-400 text-base sm:text-lg">
             Cross-platform mobile applications engineered with Clean Architecture and BLoC.
