@@ -93,7 +93,7 @@ export default function Navbar() {
           </nav>
 
           {/* Right Action Icons & CTA */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3">
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -107,10 +107,10 @@ export default function Navbar() {
               )}
             </button>
 
-            {/* Main Primary CTA */}
+            {/* Main Primary CTA — hidden on very small screens to prevent overflow */}
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 rounded-lg shadow-xs hover:shadow-cyan-500/20 transition-all duration-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+              className="hidden xs:inline-flex sm:inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 rounded-lg shadow-xs hover:shadow-cyan-500/20 transition-all duration-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>View Work</span>
@@ -120,7 +120,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
-              className="lg:hidden p-2 text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800"
+              className="lg:hidden p-2 text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 touch-manipulation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -130,19 +130,29 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] p-4 bg-white/95 dark:bg-[#070a11]/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-2xl transition-all">
-          <div className="flex flex-col space-y-1.5">
+        <div className="lg:hidden fixed inset-x-0 top-[57px] z-40 max-h-[calc(100dvh-57px)] overflow-y-auto p-4 bg-white/98 dark:bg-[#070a11]/98 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-2xl">
+          <div className="flex flex-col space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors"
+                className="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 active:bg-slate-200 dark:active:bg-slate-800 transition-colors touch-manipulation"
               >
                 <span>{link.label}</span>
                 <ChevronRight className="w-4 h-4 text-slate-400 dark:text-slate-500" />
               </a>
             ))}
+
+            {/* View Work CTA inside drawer for very small phones */}
+            <a
+              href="#projects"
+              onClick={() => setMobileMenuOpen(false)}
+              className="sm:hidden flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 mt-1 touch-manipulation"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>View Work</span>
+            </a>
 
             <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3">
               <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Connect:</span>
@@ -151,7 +161,7 @@ export default function Navbar() {
                   href={personalInfo.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2 text-slate-700 dark:text-slate-300 hover:text-cyan-600 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
+                  className="p-2.5 text-slate-700 dark:text-slate-300 hover:text-cyan-600 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 touch-manipulation"
                   aria-label="GitHub Profile"
                 >
                   <GithubIcon className="w-4 h-4" />
@@ -160,7 +170,7 @@ export default function Navbar() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2 text-slate-700 dark:text-slate-300 hover:text-cyan-600 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
+                  className="p-2.5 text-slate-700 dark:text-slate-300 hover:text-cyan-600 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 touch-manipulation"
                   aria-label="LinkedIn Profile"
                 >
                   <LinkedinIcon className="w-4 h-4" />

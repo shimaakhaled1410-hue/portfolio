@@ -97,7 +97,7 @@ export default function Hero({ onSelectProject }: HeroProps) {
   };
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-36 lg:pb-32 overflow-hidden bg-white dark:bg-[#070a11] text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-20 lg:pt-36 lg:pb-32 overflow-hidden bg-white dark:bg-[#070a11] text-slate-900 dark:text-slate-100 transition-colors duration-300">
       {/* Ambient Glow Orbs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-cyan-500/10 via-emerald-500/10 to-teal-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-20 right-10 w-72 h-72 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -110,26 +110,26 @@ export default function Hero({ onSelectProject }: HeroProps) {
             
             {/* Availability Badge */}
             <div className="inline-flex items-center justify-center lg:justify-start">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-cyan-500/10 dark:bg-cyan-950/50 border border-cyan-500/20 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-300 shadow-sm backdrop-blur-sm">
-                <span className="flex h-2 w-2 relative">
+              <div className="inline-flex flex-wrap items-center justify-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-cyan-500/10 dark:bg-cyan-950/50 border border-cyan-500/20 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-300 shadow-sm backdrop-blur-sm max-w-full">
+                <span className="flex h-2 w-2 relative shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span>Software Engineer | Flutter Developer</span>
-                <span className="text-slate-300 dark:text-slate-700">•</span>
-                <span className="text-slate-600 dark:text-slate-400 font-normal">Cairo, Egypt</span>
+                <span className="text-center">Software Engineer | Flutter Developer</span>
+                <span className="text-slate-300 dark:text-slate-700 hidden xs:inline">•</span>
+                <span className="text-slate-600 dark:text-slate-400 font-normal hidden xs:inline">Cairo, Egypt</span>
               </div>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+              <h1 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
                 Hi, I&apos;m{' '}
                 <span className="bg-gradient-to-r from-cyan-600 via-teal-500 to-emerald-600 dark:from-cyan-400 dark:via-teal-300 dark:to-emerald-400 bg-clip-text text-transparent">
                   Shimaa Khaled
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl font-semibold text-slate-700 dark:text-slate-200">
+              <p className="text-base sm:text-lg xl:text-xl font-semibold text-slate-700 dark:text-slate-200">
                 Architecting Scalable Mobile Applications with Clean Code & AI.
               </p>
             </div>
@@ -140,10 +140,10 @@ export default function Hero({ onSelectProject }: HeroProps) {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 rounded-xl shadow-lg shadow-cyan-500/20 hover:-translate-y-0.5 transition-all duration-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+                className="inline-flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 text-sm font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 rounded-xl shadow-lg shadow-cyan-500/20 hover:-translate-y-0.5 transition-all duration-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none touch-manipulation"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Explore Projects</span>
@@ -152,7 +152,7 @@ export default function Hero({ onSelectProject }: HeroProps) {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3.5 text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900/90 dark:hover:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-0.5 transition-all duration-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-3 sm:py-3.5 text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900/90 dark:hover:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-0.5 transition-all duration-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none touch-manipulation"
               >
                 <Mail className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
                 <span>Get In Touch</span>
@@ -215,11 +215,11 @@ export default function Hero({ onSelectProject }: HeroProps) {
           {/* Right Column: Clean Mobile Mockup Carousel Showcase (No overlapping badges/pill overlays) */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center">
             
-            {/* App Switcher Tabs / Chips (1. CaloGram, 2. WeDo, 3. MonoMetro - NO count numbers) */}
-            <div className="flex items-center gap-2 p-1.5 bg-slate-100 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 mb-4 shadow-sm">
+            {/* App Switcher Tabs / Chips */}
+            <div className="flex items-center gap-1 sm:gap-2 p-1 sm:p-1.5 bg-slate-100 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 mb-4 shadow-sm overflow-x-auto max-w-full scrollbar-none">
               <button
                 onClick={() => handleTabChange('calogram')}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
                   activeApp === 'calogram'
                     ? 'bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-500/30'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -229,7 +229,7 @@ export default function Hero({ onSelectProject }: HeroProps) {
               </button>
               <button
                 onClick={() => handleTabChange('wedo')}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
                   activeApp === 'wedo'
                     ? 'bg-white dark:bg-slate-800 text-cyan-600 dark:text-cyan-400 shadow-sm border border-cyan-500/30'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -239,7 +239,7 @@ export default function Hero({ onSelectProject }: HeroProps) {
               </button>
               <button
                 onClick={() => handleTabChange('monometro')}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
                   activeApp === 'monometro'
                     ? 'bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-sm border border-teal-500/30'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'

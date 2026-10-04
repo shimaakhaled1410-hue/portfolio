@@ -80,7 +80,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth dark`} suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col font-sans selection:bg-blue-500/20 selection:text-blue-500">
+      <body className="min-h-screen flex flex-col font-sans selection:bg-blue-500/20 selection:text-blue-500 overflow-x-hidden w-full">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
