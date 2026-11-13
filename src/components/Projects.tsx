@@ -9,7 +9,8 @@ import {
   ArrowRight, 
   Play, 
   Eye,
-  Video
+  Video,
+  Activity
 } from 'lucide-react';
 import { GithubIcon } from '@/components/Icons';
 
@@ -27,6 +28,7 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
     { id: 'Real-Time & Cloud', label: 'Cloud & Realtime' },
     { id: 'Community & Social', label: 'Social & Community' },
     { id: 'Transit & Utilities', label: 'Transit & Utilities' },
+    { id: 'Native Android & Sensors', label: 'Native Android & Sensors' },
   ];
 
   const filteredProjects = projects.filter((p) => {
@@ -79,7 +81,16 @@ export default function Projects({ onSelectProject, onOpenVideo }: ProjectsProps
               <div>
                 {/* Cover Image */}
                 <div className="relative aspect-[16/9] w-full bg-slate-950 overflow-hidden border-b border-slate-200 dark:border-slate-800">
-                  {project.id === 'trivio' ? (
+                  {project.id === 'resqdrive' || !project.image ? (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-[radial-gradient(ellipse_at_center,_#1e293b_0%,_#0f172a_60%,_#070a11_100%)]">
+                      <div className="w-16 h-16 rounded-2xl bg-cyan-950/60 border border-cyan-800/80 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-cyan-500/10">
+                        <Activity className="w-8 h-8 text-cyan-400" />
+                      </div>
+                      <span className="mt-3 text-xs font-semibold tracking-wider text-slate-400 uppercase font-mono">
+                        Native Android Sensor Fusion
+                      </span>
+                    </div>
+                  ) : project.id === 'trivio' ? (
                     /* Trivio: full-width logo on dark-slate gradient backdrop */
                     <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_center,_#1e293b_0%,_#0f172a_60%,_#070a11_100%)]">
                       <div className="relative w-[85%] h-[60%] group-hover:scale-105 transition-transform duration-500">

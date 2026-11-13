@@ -28,7 +28,7 @@ export default function Hero({ onSelectProject }: HeroProps) {
   const appScreenshots: Record<AppKey, string[]> = {
     calogram: Array.from({ length: 28 }, (_, i) => `/assets/${i + 1} CaloGram.jpeg`),
     wedo: Array.from({ length: 12 }, (_, i) => `/assets/${i + 1} WeDo.jpeg`),
-    monometro: Array.from({ length: 8 }, (_, i) => `/assets/${i + 1} MonoMetro.jpeg`),
+    monometro: Array.from({ length: 15 }, (_, i) => `/assets/${i + 1} MonoMetro.jpeg`),
   };
 
   const appShowcases: Record<AppKey, {
@@ -49,7 +49,7 @@ export default function Hero({ onSelectProject }: HeroProps) {
     monometro: {
       id: 'monometro',
       name: 'MonoMetro',
-      fallbackImage: '/assets/Metro_Freelancing_Project_Splash.png',
+      fallbackImage: '/assets/Metro_Freelancing_Project_1.png',
     },
   };
 

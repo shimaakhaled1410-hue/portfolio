@@ -32,7 +32,7 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
 
   if (!project) return null;
 
-  const currentGalleryItem = project.gallery[activeImageIndex] || project.gallery[0];
+  const currentGalleryItem = project.gallery?.[activeImageIndex] || project.gallery?.[0];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
@@ -103,16 +103,18 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
           >
             <span className="hidden sm:inline">Clean Arch & </span>State Flow
           </button>
-          <button
-            onClick={() => setActiveTab('gallery')}
-            className={`pb-2.5 px-2 border-b-2 transition-colors whitespace-nowrap ${
-              activeTab === 'gallery'
-                ? 'border-cyan-500 text-cyan-600 dark:text-cyan-400 font-bold'
-                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-            }`}
-          >
-            Gallery ({project.gallery.length})
-          </button>
+          {project.gallery && project.gallery.length > 0 && (
+            <button
+              onClick={() => setActiveTab('gallery')}
+              className={`pb-2.5 px-2 border-b-2 transition-colors whitespace-nowrap ${
+                activeTab === 'gallery'
+                  ? 'border-cyan-500 text-cyan-600 dark:text-cyan-400 font-bold'
+                  : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+              }`}
+            >
+              Gallery ({project.gallery.length})
+            </button>
+          )}
         </div>
 
         {/* Scrollable Content */}
@@ -348,7 +350,7 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
           )}
 
           {/* TAB 3: GALLERY */}
-          {activeTab === 'gallery' && (
+          {activeTab === 'gallery' && project.gallery && project.gallery.length > 0 && (
             <div className="space-y-6">
               {currentGalleryItem && (
                 <div className="space-y-3">

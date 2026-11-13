@@ -3,7 +3,7 @@ export interface Project {
   name: string;
   tagline: string;
   description: string;
-  category: 'AI & Mobile' | 'Real-Time & Cloud' | 'Community & Social' | 'Transit & Utilities';
+  category: 'AI & Mobile' | 'Real-Time & Cloud' | 'Community & Social' | 'Transit & Utilities' | 'Native Android & Sensors';
   problem: string;
   solution: string;
   technologies: string[];
