@@ -38,7 +38,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full overflow-hidden border border-teal-500/40 relative shadow-sm shrink-0">
                 <Image
-                  src="/assets/Shimaa Khaled.jpg"
+                  src="/assets/Shimaa Khaled.jpeg"
                   alt={personalInfo.name}
                   fill
                   className="object-cover object-top"

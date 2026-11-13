@@ -64,7 +64,7 @@ export default function Navbar() {
             <div className="relative group-hover:scale-105 transition-transform duration-300 shrink-0">
               <div className="w-10 h-10 rounded-full overflow-hidden border border-teal-500/40 relative shadow-sm">
                 <Image
-                  src="/assets/Shimaa Khaled.jpg"
+                  src="/assets/Shimaa Khaled.jpeg"
                   alt={personalInfo.name}
                   fill
                   className="object-cover object-top"

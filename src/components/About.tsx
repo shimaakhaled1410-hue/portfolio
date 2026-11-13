@@ -193,7 +193,7 @@ export default function About() {
                 {/* Stylized photo frame */}
                 <div className="relative rounded-3xl overflow-hidden border border-teal-500/20 bg-slate-900/60 shadow-2xl shadow-teal-500/10 aspect-[3/4] w-full">
                   <Image
-                    src="/assets/Shimaa Khaled.jpg"
+                    src="/assets/Shimaa Khaled.jpeg"
                     alt={personalInfo.name}
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
