@@ -24,13 +24,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shimaakhaled.dev"),
-  title: "Shimaa Khaled | Software Engineer & Flutter Developer",
+  title: "Shimaa Khaled | Mobile App Developer & Flutter Developer",
   description:
-    "Software Engineer and Flutter Developer specializing in Clean Architecture, BLoC/Cubit, Firebase cloud services, and Multimodal Gemini AI integrations. Based in Cairo, Egypt.",
+    "Mobile App Developer and Flutter Developer specializing in Clean Architecture, BLoC/Cubit, Firebase cloud services, and Multimodal Gemini AI integrations. Based in Cairo, Egypt.",
   keywords: [
     "Shimaa Khaled",
     "Flutter Developer",
-    "Software Engineer",
+    "Mobile App Developer",
     "Mobile App Developer",
     "Clean Architecture",
     "BLoC",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://shimaakhaled.dev",
-    title: "Shimaa Khaled | Software Engineer & Flutter Developer",
+    title: "Shimaa Khaled | Mobile App Developer & Flutter Developer",
     description:
       "Passionate Flutter Developer building scalable, cross-platform mobile apps with Clean Architecture, BLoC, Firebase, and AI.",
     siteName: "Shimaa Khaled Portfolio",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shimaa Khaled | Software Engineer & Flutter Developer",
+    title: "Shimaa Khaled | Mobile App Developer & Flutter Developer",
     description:
       "Crafting high-performance cross-platform mobile experiences with Flutter, Clean Architecture, and AI.",
     images: ["/assets/CaloGram_Freelancing_Project_Dashboard.png"],

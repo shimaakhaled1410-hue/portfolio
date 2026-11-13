@@ -87,7 +87,7 @@ export default function Navbar() {
                 </span>
               </div>
               <span className="text-[11px] text-slate-500 dark:text-slate-400 hidden sm:block">
-                Software Engineer
+                Mobile App Developer
               </span>
             </div>
           </a>

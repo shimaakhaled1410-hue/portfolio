@@ -56,7 +56,7 @@ export default function Footer() {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm">
-              Software Engineer specializing in Flutter, Clean Architecture, and AI-powered mobile experiences.
+              Mobile App Developer specializing in Flutter, Clean Architecture, and AI-powered mobile experiences.
             </p>
 
             <div className="flex items-center gap-3 pt-2">

@@ -115,7 +115,7 @@ export default function Hero({ onSelectProject }: HeroProps) {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span className="text-center">Software Engineer | Flutter Developer</span>
+                <span className="text-center">Mobile App Developer | Flutter Developer</span>
                 <span className="text-slate-300 dark:text-slate-700 hidden xs:inline">•</span>
                 <span className="text-slate-600 dark:text-slate-400 font-normal hidden xs:inline">Cairo, Egypt</span>
               </div>

@@ -66,7 +66,7 @@ export default function About() {
             About Me
           </h2>
           <p className="mt-3 text-slate-600 dark:text-slate-400 text-base sm:text-lg">
-            A software engineer grounded in Computer Science fundamentals, crafting enterprise Flutter applications.
+            A Mobile App Developer grounded in Computer Science fundamentals, crafting enterprise Flutter applications.
           </p>
         </div>
 
@@ -120,7 +120,7 @@ export default function About() {
                       <span>Role:</span>
                     </span>
                     <span className="font-semibold text-slate-900 dark:text-white">
-                      Software Engineer | Flutter
+                      Mobile App Developer | Flutter
                     </span>
                   </div>
 
