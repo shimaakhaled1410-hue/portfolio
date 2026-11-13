@@ -9,6 +9,8 @@ export interface Project {
   technologies: string[];
   github: string;
   demoUrl?: string;
+  playStoreUrl?: string;
+  appStoreComingSoon?: boolean;
   image: string;
   gallery: { title: string; image: string; description: string }[];
   videoUrl?: string;

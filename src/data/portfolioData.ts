@@ -157,6 +157,8 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/shimaakhaled1410-hue/MonoMetro-flutter',
     demoUrl: 'https://play.google.com/store/apps/details?id=com.shimaakhaled.monometro',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.shimaakhaled.monometro',
+    appStoreComingSoon: true,
     image: '/assets/Metro_Freelancing_Project_1.png',
     gallery: [
       {

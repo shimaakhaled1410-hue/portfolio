@@ -429,6 +429,27 @@ export default function ProjectModal({ project, onClose, onOpenVideo }: ProjectM
                 <span>Watch Demo</span>
               </button>
             )}
+            {project.playStoreUrl && (
+              <a
+                href={project.playStoreUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white rounded-xl border border-slate-700 transition-colors shadow-xs"
+                title="Get it on Google Play"
+              >
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.97.07l12.08-6.98-2.76-2.76-10.29 9.67zm-1.68-21.3A1.5 1.5 0 0 0 1 3.56v16.88a1.5 1.5 0 0 0 .5 1.1l.07.06 9.46-9.46v-.22L1.57 2.46l-.07.0zm17.52 7.78-2.6-1.5-3.1 3.1 3.1 3.1 2.62-1.51a1.75 1.75 0 0 0 0-3.19zm-16.3 1.76 2.5-2.5 9.72 5.62-2.76 2.76-9.46-5.88z"/></svg>
+                <span>Google Play</span>
+              </a>
+            )}
+            {project.appStoreComingSoon && (
+              <span
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold bg-slate-100 dark:bg-slate-900 text-slate-400 dark:text-slate-500 rounded-xl border border-slate-200 dark:border-slate-800 cursor-default"
+                title="App Store — Coming Soon"
+              >
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.14-2.19 1.28-2.17 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.77M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span>App Store — Soon</span>
+              </span>
+            )}
             <a
               href={project.github}
               target="_blank"
