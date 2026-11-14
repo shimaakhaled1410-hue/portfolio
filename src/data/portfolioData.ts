@@ -268,7 +268,7 @@ export const projects: Project[] = [
     metrics: [
       { label: 'Team Size', value: '6 Engineers' },
       { label: 'User Flows Covered', value: '30+ Flows' },
-      { label: 'Role', value: 'Core Mobile Lead' },
+      { label: 'Role', value: 'Mobile Developer (Groups & Feeds)' },
     ],
   },
   {
