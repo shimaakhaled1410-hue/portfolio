@@ -17,7 +17,7 @@ interface HeroProps {
   onSelectProject?: (projectId: string) => void;
 }
 
-type AppKey = 'calogram' | 'wedo' | 'monometro';
+type AppKey = 'calogram' | 'wedo' | 'monometro' | 'mirrors' | 'mirrorsAdmin';
 
 export default function Hero({ onSelectProject }: HeroProps) {
   const [activeApp, setActiveApp] = useState<AppKey>('calogram');
@@ -29,6 +29,8 @@ export default function Hero({ onSelectProject }: HeroProps) {
     calogram: Array.from({ length: 28 }, (_, i) => `/assets/${i + 1} CaloGram.jpeg`),
     wedo: Array.from({ length: 12 }, (_, i) => `/assets/${i + 1} WeDo.jpeg`),
     monometro: Array.from({ length: 15 }, (_, i) => `/assets/${i + 1} MonoMetro.jpeg`),
+    mirrors: Array.from({ length: 16 }, (_, i) => `/assets/${i + 1} SH&M Mirrors Store.jpeg`),
+    mirrorsAdmin: Array.from({ length: 5 }, (_, i) => `/assets/${i + 1} Admin Mirros Store.jpeg`),
   };
 
   const appShowcases: Record<AppKey, {
@@ -50,6 +52,16 @@ export default function Hero({ onSelectProject }: HeroProps) {
       id: 'monometro',
       name: 'MonoMetro',
       fallbackImage: '/assets/Metro_Freelancing_Project_1.png',
+    },
+    mirrors: {
+      id: 'mirrors-store',
+      name: 'Mirrors Store',
+      fallbackImage: '/assets/01-browse.jpg',
+    },
+    mirrorsAdmin: {
+      id: 'mirrors-admin',
+      name: 'Mirrors Admin',
+      fallbackImage: '/assets/01-orders.jpg',
     },
   };
 
@@ -246,6 +258,26 @@ export default function Hero({ onSelectProject }: HeroProps) {
                 }`}
               >
                 MonoMetro
+              </button>
+              <button
+                onClick={() => handleTabChange('mirrors')}
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
+                  activeApp === 'mirrors'
+                    ? 'bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-500/30'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                Mirrors Store
+              </button>
+              <button
+                onClick={() => handleTabChange('mirrorsAdmin')}
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
+                  activeApp === 'mirrorsAdmin'
+                    ? 'bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-500/30'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                Mirrors Admin
               </button>
             </div>
 
